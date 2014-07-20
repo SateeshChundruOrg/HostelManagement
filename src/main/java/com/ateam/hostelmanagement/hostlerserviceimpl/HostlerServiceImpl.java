@@ -1,0 +1,195 @@
+package com.ateam.hostelmanagement.hostlerserviceimpl;
+
+import java.util.List;
+
+
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ateam.hostelmanagement.bean.Expense;
+import com.ateam.hostelmanagement.bean.Hostel;
+import com.ateam.hostelmanagement.bean.Hostler;
+import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
+import com.ateam.hostelmanagement.bean.Payments;
+import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.hosteldao.HostlerDao;
+import com.ateam.hostelmanagement.hostelservice.HostlerService;
+@Service
+public class HostlerServiceImpl implements HostlerService{
+
+	@Autowired
+	HostlerDao hostlerDao;
+	@Override
+	public void saveHostler(Hostler hostler) {
+		System.out.println(hostler.getName());
+		hostlerDao.saveHostler(hostler);
+		
+	}
+	@Override
+	public List<Hostler> getallhostlers() {
+		
+		// TODO Auto-generated method stub
+		return hostlerDao.getallhostlers();
+	}
+	@Override
+	public void deleteHostler(long hostlerId) {
+		// TODO Auto-generated method stub
+		hostlerDao.deleteHostler(hostlerId);
+		
+	}
+	@Override
+	public void editHostler(Hostler hostler) {
+		// TODO Auto-generated method stub
+		hostlerDao.editHostler(hostler);
+		
+	}
+	@Override
+	public Hostler getHostler(Long hostlerId) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getHostler(hostlerId);
+	}
+	@Override
+	public Hostler getHostler(long hostlerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void saveHostel(Hostel hostel) {
+		// TODO Auto-generated method stub
+		hostlerDao.saveHostel(hostel);
+	}
+	@Override
+	public List<Hostel> getallhostels() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getallhostels();
+	}
+	@Override
+	public void deleteHostel(long hostelId) {
+		// TODO Auto-generated method stub
+		hostlerDao.deleteHostel(hostelId);
+		
+	}
+	@Override
+	public void editHostel(Hostel hostel) {
+		// TODO Auto-generated method stub
+		hostlerDao.editHostel(hostel);
+		
+	}
+	@Override
+	public Hostel getHostel(long hostelId) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getHostel(hostelId);
+	}
+	@Override
+	public void saveRoom(Room room) {
+		// TODO Auto-generated method stub
+		hostlerDao.saveRoom(room);
+		
+	}
+	@Override
+	public List<Room> getallrooms() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getallrooms();
+	}
+	@Override
+	public void deleteRoom(long roomId) {
+		// TODO Auto-generated method stub
+		hostlerDao.deleteRoom(roomId);
+		
+	}
+	@Override
+	public void editRoom(Room room) {
+		// TODO Auto-generated method stub
+		hostlerDao.editRoom(room);
+	}
+	@Override
+	public Room getRoom(long roomId) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getRoom(roomId);
+	}
+	@Override
+	public void saveExpense(Expense expense) {
+		// TODO Auto-generated method stub
+	hostlerDao.saveExpense(expense);	
+	}
+	@Override
+	public List<Expense> getallExpenses() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getallExpenses();
+	}
+	@Override
+	public void deleteExpense(long expenseId) {
+		// TODO Auto-generated method stub
+		hostlerDao.deleteExpense(expenseId);
+	}
+	@Override
+	public void editExpense(Expense expense) {
+		// TODO Auto-generated method stub
+		hostlerDao.editExpense(expense);
+	}
+	@Override
+	public Expense getExpense(long expenseId) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getExpense(expenseId);
+	}
+	@Override
+	public void saveAssign(HostlerRoomMapping hostlerRoomMapping) {
+		// TODO Auto-generated method stub
+		hostlerDao.saveAssign(hostlerRoomMapping);
+	}
+	@Override
+	public List<HostlerRoomMapping> getallAssigns() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getallAssigns();
+	}
+	@Override
+	public void deleteAssign(long id) {
+		// TODO Auto-generated method stub
+		hostlerDao.deleteAssign(id);
+	}
+	@Override
+	public void editAssign(HostlerRoomMapping hostlerRoomMapping) {
+		// TODO Auto-generated method stub
+	hostlerDao.editAssign(hostlerRoomMapping);	
+	}
+	@Override
+	public HostlerRoomMapping getAssign(long id) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getAssign(id);
+	}
+	@Override
+	public List<Room> getAvailableBeds() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getAvailableBeds();
+	}
+	@Override
+	public List<HostlerRoomMapping> getHostlersRooms() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getHostlersRooms();
+	}
+	@Override
+	public List<Long> getPaidHostlerIds(String fromDate, String toDate) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getPaidHostlerIds(fromDate, toDate);
+	}
+	@Override
+	public List<Hostler> getUnPaidHostlerIds(String fromDate, String toDate) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getUnPaidHostlerIds(fromDate, toDate);
+	}
+	@Override
+	public void savePayment(Payments payments) {
+		// TODO Auto-generated method stub
+		hostlerDao.savePayment(payments);
+		
+	}
+	@Override
+	public List<Payments> getPaymentDetails() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getPaymentDetails();
+	}
+
+}
