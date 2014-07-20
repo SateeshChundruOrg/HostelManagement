@@ -2,8 +2,6 @@ package com.ateam.hostelmanagement.Validators;
 import java.util.Date;
 
 import org.apache.commons.validator.routines.DateValidator;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -25,6 +23,7 @@ public class HostlerValidator implements Validator
 	public void validate(Object arg0, Errors errors) {
 	Hostler hostler=(Hostler)arg0;
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name","required.name","name is mandatory");
+	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "age","required.age","age is required" );
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfJoining","required.dateOfJoining","date is required");	
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors,"mobileNumber","required.mobileNumber","number is required");
 	if(!Api.isEmptyString(hostler.getDateOfJoining())){
