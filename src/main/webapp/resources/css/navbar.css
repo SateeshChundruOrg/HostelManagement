@@ -1,0 +1,98 @@
+.sf-navbar {
+	/* background: #3c3c3c; */
+	background: none;
+}
+
+.sf-navbar li {
+	margin-top: 0px;
+	background: url(img/menu.png) repeat-x;
+}
+
+.sf-navbar li li {
+	background: #3c3c3c;
+}
+
+.sf-navbar li.current {
+	background:		#3c3c3c;
+}
+
+.sf-navbar li:hover,
+.sf-navbar li.sfHover,
+.sf-navbar li li.current,
+.sf-navbar a:focus, .sf-navbar a:hover, .sf-navbar a:active {
+	background: #3c3c3c;
+}
+ 
+.sf-navbar ul li:hover,
+.sf-navbar ul li.sfHover,
+ul.sf-navbar ul li:hover li,
+ul.sf-navbar ul li.sfHover li,
+.sf-navbar ul a:focus, .sf-navbar ul a:hover, .sf-navbar ul a:active {
+	background: #3c3c3c;
+}
+
+ul.sf-navbar li li li:hover,
+ul.sf-navbar li li li.sfHover,
+.sf-navbar li li.current li.current,
+.sf-navbar ul li li a:focus, .sf-navbar ul li li a:hover, .sf-navbar ul li li a:active {
+	background:		#3c3c3c;
+}
+
+.sf-navbar li a,
+.sf-navbar li a:active,
+.sf-navbar li a:link,
+.sf-navbar li a:visited {
+	color: #000;
+	border: none;
+}
+
+
+
+.sf-navbar li.sfHover a,
+.sf-navbar li.sfHover a:active,
+.sf-navbar li.sfHover a:link,
+.sf-navbar li.sfHover a:visited{
+	color: #fff;
+}
+
+.sf-navbar li li a,
+.sf-navbar li li a:active,
+.sf-navbar li li a:link,
+.sf-navbar li li a:visited {
+	color: #fff;
+}
+ 
+.sf-menu {
+	margin-bottom:	0px;
+	width: 100%;
+}
+
+.navbar-main{
+	width: 100%; 
+	height: 5em;
+}
+
+.navbar-patch1{
+	width:100%; 
+	height: 2.5em; 
+	/* background-color: #BDD2FF;  */
+	background-color: #3c3c3c;
+	position: absolute; 
+	padding-top: 2.5em; 
+	z-index: 1;
+}
+
+.navbar-patch2{
+	width:100%; 
+	height: 2.5em; 
+	/* background-color: #AABDE6;  */
+	background: url(img/menu.png) repeat-x;
+	position: absolute; 
+	z-index: 2;
+}
+
+.navbar-body{
+	position: absolute; 
+	z-index: 3;
+	width: 100%;
+}
