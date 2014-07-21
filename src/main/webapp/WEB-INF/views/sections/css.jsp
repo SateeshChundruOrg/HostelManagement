@@ -5,7 +5,7 @@
 <link rel="stylesheet" media="screen" href="${pageContext.servletContext.contextPath}/resources/css/superfish-navbar.css" /> 
 <link rel="stylesheet" media="screen" href="${pageContext.servletContext.contextPath}/resources/css/menu.css" /> 
 <link rel="stylesheet" media="screen" href="${pageContext.servletContext.contextPath}/resources/css/navbar.css" /> 
-<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/effort.css" />
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/ateam.css" />
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/layout.css" />
 
 <style type="text/css">
