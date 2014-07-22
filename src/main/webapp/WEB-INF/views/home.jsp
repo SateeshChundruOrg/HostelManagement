@@ -99,7 +99,7 @@ ${hostler.address}
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/form/editHostlerLand/${hostler.hostlerId}">Edit Hostler</a>
+<a href="${pageContext.servletContext.contextPath}/web/editHostlerLand/${hostler.hostlerId}">Edit Hostler</a>
 
 </td>
 <td>

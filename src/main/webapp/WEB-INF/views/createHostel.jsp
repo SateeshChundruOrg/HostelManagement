@@ -6,6 +6,35 @@
 <html>
 <head>
 <title>Insert title here</title>
+<style>
+.error{
+color:red
+}
+</style>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function onSubmit(){
+	if(isFormContainErrors()){
+		return false;
+	}
+	return true;
+}
+function isFormContainErrors(){
+	var hostelName="$(#hostelName)".val();
+	var hostelAddress="$(#hostelAddress)".val();
+	if(hostelName==''){
+		$("#hostelName_error").html("hostel name is required");
+		return true;
+	}
+	if(hostelAddress==''){
+		$("#hostelAddress_error").html("hostel address is required");
+		return true;
+	}
+		
+}
+</script>
 </head>
 <body>
 <form:form action="${pageContext.servletContext.contextPath}/web/form/createHostel" method="post" modelAttribute="hostel">
@@ -15,11 +44,12 @@
 </a>
 <form:input path="hostelName"/>
 <!-- <input type="text" name="hostelName"/></td> -->
+<td><span id="hostelName_error" class="error"><form:errors path="hostelName"></form:errors></span></td>
 </tr>
 <tr>
 <td>address</td> <td> 
 <form:textarea path="hostelAddress"/>
-
+<td><span id="hostelAddress_error" class="error"><form:errors path="hostelAdddress"></form:errors></span></td>
 <!-- <textarea rows="10" cols="10" name="hostelAddress"></textarea></td> -->
 </tr>
 <tr>

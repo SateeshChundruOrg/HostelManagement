@@ -47,14 +47,9 @@ public class HostlerServiceImpl implements HostlerService{
 		
 	}
 	@Override
-	public Hostler getHostler(Long hostlerId) {
-		// TODO Auto-generated method stub
-		return hostlerDao.getHostler(hostlerId);
-	}
-	@Override
 	public Hostler getHostler(long hostlerId) {
 		// TODO Auto-generated method stub
-		return null;
+		return hostlerDao.getHostler(hostlerId);
 	}
 	@Override
 	public void saveHostel(Hostel hostel) {

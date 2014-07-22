@@ -54,12 +54,21 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		model.addAttribute("hostler",new Hostler());
 		return "createHostler";
 }
+	@RequestMapping(value="/editHostlerLand/{hostlerId}",method=RequestMethod.GET)
+	public String editHostlerLand(Model model ,@PathVariable String hostlerId){
+		//model.addAttribute("hostel", new Hostel());
+		//Hostel hostel=hostlerService.getHostel(Long.parseLong(hostelId));
+		Hostler hostler=hostlerService.getHostler(Long.parseLong(hostlerId));
+		model.addAttribute("hostler",hostler);
+		return "editHostler";
+	}
 	@RequestMapping(value="/createHostelLand",method=RequestMethod.GET)
 	public String createHostelLand(Model model){
 		model.addAttribute("hostel", new Hostel());
 		
 		return "createHostel";
 }
+	
 	@RequestMapping(value="/editHostel/{hostelId}",method=RequestMethod.GET)
 	public String editHostel(Model model ,@PathVariable String hostelId){
 		//model.addAttribute("hostel", new Hostel());

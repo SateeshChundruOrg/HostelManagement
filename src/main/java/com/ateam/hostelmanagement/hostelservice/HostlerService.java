@@ -32,7 +32,7 @@ public interface HostlerService {
     public void deleteRoom(long roomId);
     public void editRoom(Room room);
     public Room getRoom(long roomId);
-	Hostler getHostler(Long hostlerId);
+	//Hostler getHostler(Long hostlerId);
 
 	
 	public void saveExpense(Expense expense);

@@ -78,7 +78,7 @@ public class HostlerDaoImpl implements HostlerDao {
 		
 	}
 	@Override
-	public Hostler getHostler(Long hostlerId) {
+	public Hostler getHostler(long hostlerId) {
 		
 		return jdbcTemplet.queryForObject(Sqls.SELECT_HOSTLER, new Object[]{hostlerId},new BeanPropertyRowMapper<Hostler>(Hostler.class));
 		
@@ -167,11 +167,8 @@ public class HostlerDaoImpl implements HostlerDao {
 		
 		return jdbcTemplet.queryForObject(Sqls.SELECT_ROOM,new Object[]{roomId},new BeanPropertyRowMapper<Room>(Room.class));
 	}
-	@Override
-	public Hostler getHostler(long hostlerId) {
-		
-		return null;
-	}
+
+	
 	@Override
 	public void saveExpense(final Expense expense) {
 		
