@@ -1,0 +1,51 @@
+html, body, table.layout, table.layout tr.content{
+	height: 100%;
+	width: 100%;
+}
+
+table.layout tr.header{
+	height: 90px;
+}
+
+table.layout tr.footer{
+	height: 30px;
+}
+
+table.layout tr.content td.side-panel{
+	vertical-align: top; 
+	padding: 10px; 
+	min-width: 200px;
+	width: 15%;
+}
+
+table.layout tr.content td.content{
+	vertical-align: top; 
+	padding: 10px; 
+	width: 80%;
+}
+
+table.layout h1.title{
+	padding: 0; 
+	padding-bottom: 10px;
+	margin: 0;
+	font-size: 18px;
+}
+
+table.layout div.section{
+	margin-bottom: 5px;
+}
+
+table.layout tr.content td.menu a{
+	text-decoration: none;
+	margin: 2px;
+	font-size: 13px;
+	color: #024E68;
+}
+
+table.layout tr.content td.menu a.section-title{
+	font-weight: bold;
+	font-size: 13px;
+}
+
+
+

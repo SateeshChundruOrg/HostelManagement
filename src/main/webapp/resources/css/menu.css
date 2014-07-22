@@ -1,0 +1,48 @@
+.menu-title{
+	padding: 0.5em; 
+	background-color: #596167; 
+	color: #fff; 
+	border: 1px solid #596167; 
+	border-radius: 10px 10px 0px 0px;
+}
+
+.menu-content{
+	padding-bottom: 20px;
+	background: #fff; 
+	border: 1px solid #DADADA; 
+	border-radius: 0px 0px 10px 10px;
+}
+
+.sf-menu a {
+	border-top:	none;
+}
+
+.sf-menu li {
+	margin-top: 2px;
+	background:	#fff;
+}
+
+.sf-menu li li {
+	background:	#fff;
+}
+
+.sf-menu li li li {
+	background:	#fff;
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	background:	#A5A5A5;
+}
+
+.sf-menu li:hover a, .sf-menu li.sfHover a,
+.sf-menu li:hover a:active, .sf-menu li.sfHover a:active{
+	color: #fff;
+}
+
+.sf-menu a,
+.sf-menu a:active,
+.sf-menu a:link,
+.sf-menu a:visited{
+	color: #000;
+}

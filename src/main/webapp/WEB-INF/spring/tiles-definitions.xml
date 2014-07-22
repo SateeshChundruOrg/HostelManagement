@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	
+	<definition name="template-login" template="/WEB-INF/views/layouts/loginLayout.jsp">
+		<put-attribute name="title-content" value="Effort" />
+		<put-attribute name="css-content" value="" />
+		<put-attribute name="js-content" value="" />
+		<put-attribute name="header-content" value="/WEB-INF/views/sections/header_login.jsp" />
+		<put-attribute name="body-content" value="" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/sections/footer.jsp" />
+	</definition>
+	
+	<definition name="template-main" template="/WEB-INF/views/layouts/layout.jsp">
+		<put-attribute name="title-content" value="Effort" />
+		<put-attribute name="css-content" value="/WEB-INF/views/sections/css.jsp" />
+		<put-attribute name="js-content" value="/WEB-INF/views/sections/js.jsp" />
+		<put-attribute name="header-content" value="/WEB-INF/views/sections/header.jsp" />
+		<put-attribute name="side-panel-content" value="/WEB-INF/views/sections/side_panel.jsp" />
+		<put-attribute name="nav-menu-content" value="/WEB-INF/views/sections/menu_nav.jsp" />
+		<put-attribute name="body-content" value="" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/sections/footer.jsp" />
+	</definition>
+	
+	<definition name="login" extends="template-login">
+		<put-attribute name="title-content" value="Login" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/login.jsp" />
+	</definition>
+	
+	<definition name="accessDenied" extends="template-main">
+		<put-attribute name="header-title-content" value="Access Denied" />
+		<put-attribute name="title-content" value="" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/accessDenied.jsp" />
+	</definition>
+	
+	<definition name="effort" extends="template-main">
+		<put-attribute name="header-title-content" value="" />
+		<put-attribute name="title-content" value="" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/effort.jsp" />
+	</definition>
+	
+	<definition name="createHostler" extends="template-main">
+		<put-attribute name="header-title-content" value="Create Hostler" />
+		<put-attribute name="title-content" value="Create Hostler" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/createHostler.jsp" />
+	</definition>
+	
+	<definition name="editHostler" extends="template-main">
+		<put-attribute name="header-title-content" value="Modify Hostler" />
+		<put-attribute name="title-content" value="Modify Hostler" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/editHostler.jsp" />
+	</definition>
+	
+	<definition name="home" extends="template-main">
+		<put-attribute name="header-title-content" value="All Hostlers" />
+		<put-attribute name="title-content" value="All Hostlers" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/home.jsp" />
+	</definition>
+	
+	<definition name="modifyCompanySubscription" extends="template-main">
+		<put-attribute name="header-title-content" value="Modify Subscription" />
+		<put-attribute name="title-content" value="Modify Subscription" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/modifyCompanySubscription.jsp" />
+	</definition>
+	
+	<definition name="companyDetails" extends="template-main">
+		<put-attribute name="header-title-content" value="Company details" />
+		<put-attribute name="title-content" value="Company details" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/companyDetails.jsp" />
+	</definition>
+	
+	<definition name="allInvoicesLand" extends="template-main">
+		<put-attribute name="header-title-content" value="Invoices" />
+		<put-attribute name="title-content" value="Invoices" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/allInvoicesLand.jsp" />
+	</definition>
+	
+	<definition name="allInvoices" extends="template-main">
+		<put-attribute name="header-title-content" value="Invoices" />
+		<put-attribute name="title-content" value="Invoices" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/allInvoices.jsp" />
+	</definition>
+	
+	<definition name="allInvoicesOfAllCompanys" extends="template-main">
+		<put-attribute name="header-title-content" value="Invoices" />
+		<put-attribute name="title-content" value="Invoices" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/allInvoiceForAllCompany.jsp" />
+	</definition>
+	
+	
+	<definition name="modifyInvoice" extends="template-main">
+		<put-attribute name="header-title-content" value="Modify Invoice" />
+		<put-attribute name="title-content" value="Modify Invoice" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/modifyInvoice.jsp" />
+	</definition>
+	
+	<definition name="createInvoice" extends="template-main">
+		<put-attribute name="header-title-content" value="Create Invoice" />
+		<put-attribute name="title-content" value="Create Invoice" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/createInvoice.jsp" />
+	</definition>
+	
+	<definition name="allPurchasesLand" extends="template-main">
+		<put-attribute name="header-title-content" value="Purchases" />
+		<put-attribute name="title-content" value="Purchases" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/allPurchasesLand.jsp" />
+	</definition>
+	
+	<definition name="allPurchases" extends="template-main">
+		<put-attribute name="header-title-content" value="Purchases" />
+		<put-attribute name="title-content" value="Purchases" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/allPurchases.jsp" />
+	</definition>
+	
+	<definition name="modifyPurchase" extends="template-main">
+		<put-attribute name="header-title-content" value="Modify Purchase" />
+		<put-attribute name="title-content" value="Modify Purchase" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/modifyPurchase.jsp" />
+	</definition>
+	
+	<definition name="createPurchase" extends="template-main">
+		<put-attribute name="header-title-content" value="Add Purchase" />
+		<put-attribute name="title-content" value="Add Purchase" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/createPurchase.jsp" />
+	</definition>
+	<definition name="customPricing" extends="template-main">
+		<put-attribute name="header-title-content" value="Custom Pricing" />
+		<put-attribute name="title-content" value="Custom Pricing" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/customPricing.jsp" />
+	</definition>
+	
+	<definition name="companyEmpDetail" extends="template-main">
+		<put-attribute name="header-title-content" value="Company Employee Detail" />
+		<put-attribute name="title-content" value="Company Employee Detail" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/companyEmpDetail.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

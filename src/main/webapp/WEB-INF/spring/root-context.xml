@@ -54,7 +54,7 @@
 	</bean>
 	
 	
-	
+	<import resource="tiles-context.xml" />
 			
 		
 </beans>

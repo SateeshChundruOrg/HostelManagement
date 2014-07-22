@@ -1,0 +1,115 @@
+.ui-datepicker { font-size: 10px; }
+
+.ui-datepicker-trigger{ vertical-align: middle; }
+
+.ui-progressbar{ font-size: 5px; }
+/* .ui-progressbar-value { background: green; } */
+
+body, p, input, textarea, select, button, td, th {
+	font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+	color: #222222;
+}
+
+th{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+h1{
+	font-size: 22px;
+}
+
+.grid{
+	border-collapse: collapse;
+	border-spacing: 0; 
+}
+
+.grid td{
+	/* border: 1px solid #5585D9;  */
+	border: 1px solid #bcbdbf; 
+	word-wrap:break-word;
+}
+
+.grid.noGrid td{
+	border: none; 
+}
+
+.grid th{
+	margin: 0px;
+	color: #fff;
+	/* background-color:  #214F8F; */
+	background-color: #596167; 
+	/* border: 1px solid #214F8F; */
+	border: 1px solid #596167;
+}
+
+/* .grid th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+.grid th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.grid th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+} */
+
+
+.grid tr:nth-child(2n+1) td{
+	/* background:  #F4F4F4; */
+	background:  #f2f0f0;
+}
+
+.grid tr:nth-child(2n) td{
+	/* background:  #FFFFFF; */
+	background:  #fafafa;
+}
+
+table.grid thead tr .header {
+	background-image: url(img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+	padding-right: 20px;
+}
+table.grid thead tr .headerSortUp {
+	background-image: url(img/asc.gif);
+	padding-right: 20px;
+}
+table.grid thead tr .headerSortDown {
+	background-image: url(img/desc.gif);
+	padding-right: 20px;
+}
+
+td.nodata{
+	text-align: center; 
+	height: 50px; 
+	background-color:  #F4F4F4;
+}
+
+.link {
+	text-decoration: none; 
+	color: #3399ff;
+}
+.link:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.link-login {
+	text-decoration: none; 
+	color: #fff;
+}
+.link-login:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
