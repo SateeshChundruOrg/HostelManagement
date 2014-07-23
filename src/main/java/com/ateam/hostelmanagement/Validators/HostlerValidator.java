@@ -23,6 +23,7 @@ public class HostlerValidator implements Validator
 	public void validate(Object arg0, Errors errors) {
 	Hostler hostler=(Hostler)arg0;
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name","required.name","name is mandatory");
+	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "sex","required.sex","sex is required" );
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "age","required.age","age is required" );
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfJoining","required.dateOfJoining","date is required");	
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors,"mobileNumber","required.mobileNumber","number is required");

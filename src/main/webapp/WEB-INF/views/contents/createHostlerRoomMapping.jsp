@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body >
-<form:form action="${pageContext.servletContext.contextPath}/web/form/createHostlerRoomMapping" method="post" >
+<form:form action="${pageContext.servletContext.contextPath}/web/form/hostler/room/mapping/create" method="post" >
 <input type="hidden" name="hostlerId" value="${hostlerId}"/>
 <table >
 <tr>

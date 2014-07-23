@@ -9,15 +9,74 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+.error{
+color:red
+}
+</style>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//$("#first").hide();
+});
+
+function onSubmit(){
+	
+	if(isFormContainsErrors()){
+		return false;
+	}
+
+	return true;
+	
+}
+function isFormContainsErrors(){
+	var name=$("#name").val();
+	var age=$("#age").val();
+// 	var sex=$("#sex").val();
+	var qualification=$("#qualification").val();
+	var mobileNumber=$("#mobileNumber").val();
+	var address=$("#address").val();
+	
+	if(name==''){
+		$("#name_error").html("* Name is required");
+		
+		return true;
+	}
+	if(age==''){
+		$("#age_error").html("* Age is required");
+		return true;
+	}
+ 	if(sex==''){
+ 		$("#sex_error").html("* sex is required");
+ 		return true;
+ 	}
+	if(qualification==''){
+		$("#qualification_error").html("*qualification is required");
+		return true;
+	}
+	
+	if(mobileNumber==''){
+		$("#mobileNumber_error").html("*mobileNumber is required");
+		return true;
+	}
+	if(address==''){
+		$("#address_error").html("* address is required");
+		return true;
+	}
+	return false;
+}
+</script>
 </head>
 <body>
 
-<form:form action="${pageContext.servletContext.contextPath}/web/form/editHostler" method="post" modelAttribute="hostler">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/hostler/edit" method="post" modelAttribute="hostler" onsubmit="return onSubmit()" >
 <%-- <input type=hidden name="hostlerId" value="${hostler.hostlerId}"> --%>
 <table>
 <tr>
 <td>Name</td>     <td>  <form:input path="name" /></td>
-<td><span id="age_error" class="error"><form:errors path="name"></form:errors></span></td>
+<td><span id="name_error" class="error"><form:errors path="name"></form:errors></span></td>
 </tr>
 
 <tr>
@@ -34,26 +93,26 @@
 </tr>
 <tr>
 <td>Sex </td>      <td>    <form:input path="sex" /></td>
-<td><span id="age_error" class="error"><form:errors path="sex"></form:errors></span></td>
+<td><span id="sex_error" class="error"><form:errors path="sex"></form:errors></span></td>
 </tr>
 <tr>
 <td>Qualification</td><td> <form:input path="qualification" /></td>
-<td><span id="age_error" class="error"><form:errors path="qualification"></form:errors></span></td>
+<td><span id="qualification_error" class="error"><form:errors path="qualification"></form:errors></span></td>
 </tr>
 <tr>
 <td>Date Of Join</td><td>    <form:input path="dateOfJoining" /></td>
-<td><span id="age_error" class="error"><form:errors path="dateOfJoining"></form:errors></span></td>
+<td><span id="dateOfJoining_error" class="error"><form:errors path="dateOfJoining"></form:errors></span></td>
 </tr>
 
 <tr>
 <td>
 Mobile Number</td><td> <form:input path="mobileNumber"/></td>
-<td><span id="age_error" class="error"><form:errors path="mobileNumber"></form:errors></span></td>
+<td><span id="mobileNumber_error" class="error"><form:errors path="mobileNumber"></form:errors></span></td>
 </tr>
 <tr>
 <td>Address</td><td><form:textarea path="address" rows="5" cols="20"></form:textarea>
-<td><span id="age_error" class="error"><form:errors path="address"></form:errors></span></td>
-</td>
+<td><span id="address_error" class="error"><form:errors path="address"></form:errors></span></td>
+
 </tr>
 <tr>
 <td><input type="submit" name="submit" value="Submit"></td>

@@ -3,13 +3,8 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<table class="grid" cellpadding=8 cellspaceing=0>
+
+<table class="grid" cellpadding="8" cellspacing="0">
 <tr>
 <th>
 HostelName
@@ -33,12 +28,12 @@ ${hostel.hostelAddress}
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/form/deleteHostel/${hostel.hostelId}">Delete Hostel</a>
+<a href="${pageContext.servletContext.contextPath}/web/form/hostel/delete/${hostel.hostelId}">Delete Hostel</a>
 
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/editHostel/${hostel.hostelId}">Edit Hostel</a>
+<a href="${pageContext.servletContext.contextPath}/web/hostel/edit/${hostel.hostelId}">Edit Hostel</a>
 
 </td>
 </tr>
@@ -48,5 +43,3 @@ ${hostel.hostelAddress}
 
 </table>
 
-</body>
-</html>

@@ -4,15 +4,9 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-<table class="grid" cellpadding=8 cellspaceing=0>
+
+<table class="grid" cellpadding="8" cellspacing="0">
 <tr>
 <th>
 RoomNumber
@@ -42,12 +36,12 @@ ${room.hostelName}
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/form/deleteRoom/${room.roomId}">Delete room</a>
+<a href="${pageContext.servletContext.contextPath}/web/form/hostel/room/delete/${room.roomId}">Delete room</a>
 
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/editRoom/${room.roomId}">Edit room</a>
+<a href="${pageContext.servletContext.contextPath}/web/hostel/room/edit/${room.roomId}">Edit room</a>
 
 </td>
 </tr>
@@ -57,5 +51,3 @@ ${room.hostelName}
 
 </table>
 
-</body>
-</html>

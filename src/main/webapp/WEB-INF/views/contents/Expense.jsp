@@ -4,29 +4,24 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
+
 <body>
-<table>
+<table class="grid" cellpadding="8" cellspacing="0">
 <tr>
-<td>
+<th>
 Reason
-</td>
-<td>
+</th>
+<th>
 Amount
-</td>
-<td>
+</th>
+<th>
 Date
-</td>
-<td colspan="3">
+</th>
+<th colspan="3">
 <b>
 Actions
 </b>
-</td>
+</th>
 </tr>
 <c:forEach items="${expenses}" var="expense">
 <tr>
@@ -41,12 +36,12 @@ ${expense.date}
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/form/deleteExpense/${expense.expenseId}">Delete Expense</a>
+<a href="${pageContext.servletContext.contextPath}/web/form/expense/delete/${expense.expenseId}">Delete Expense</a>
 
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/editExpense/${expense.expenseId}">Edit expense</a>
+<a href="${pageContext.servletContext.contextPath}/web/expense/edit/${expense.expenseId}">Edit expense</a>
 
 </td>
 </tr>
@@ -57,5 +52,3 @@ ${expense.date}
 </table>
 
 
-</body>
-</html>

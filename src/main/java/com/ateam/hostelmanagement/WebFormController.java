@@ -73,7 +73,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		
 		return "home";
 	}
-	@RequestMapping (value="/createHostler",method=RequestMethod.POST)
+	@RequestMapping (value="/hostler/create",method=RequestMethod.POST)
 	public String createHostler(Model model,@ModelAttribute("hostler") Hostler hostler,BindingResult result){
 		hostlerValidator.validate(hostler, result);
 		if(result.hasErrors()){
@@ -84,45 +84,35 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		hostlerService.saveHostler(hostler);
 //		model.addAttribute("host",  hostlerService.getallhostlers());
 //		return "home";
-		  return "redirect:/web/form/allHostlers";
+		  return "redirect:/web/hostler/all";
 	
 	}
-	@RequestMapping(value = "/deleteHostler/{hostlerId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/hostler/delete/{hostlerId}", method = RequestMethod.GET)
 	public String deleteHostler( Model model,@PathVariable("hostlerId")Long  hostlerId) {
 		hostlerService.deleteHostler(hostlerId);
 //		model.addAttribute("host", hostlerService.getallhostlers());
 //
 //       return "home";
 	
-		  return "redirect:/web/form/allHostlers";
+		  return "redirect:/web/hostler/al";
 	}
 	
-	@RequestMapping(value = "/editHostler", method = RequestMethod.POST)
-	public String editHostler( Model model,@ModelAttribute("hostel") Hostler hostler) {
+	@RequestMapping(value = "/hostler/edit", method = RequestMethod.POST)
+	public String editHostler( Model model,@ModelAttribute("hostel") Hostler hostler, BindingResult result) {
+		hostlerValidator.validate(hostler, result);
+		if(result.hasErrors()){
+			model.addAttribute("hostler",hostler);
+			return "editHostler";
+		}
 		hostlerService.editHostler(hostler);
 		//model.addAttribute("host",hostlerService.getallhostlers());
 
-	       return "redirect:/web/form/allHostlers";
-
-	}
-	@RequestMapping(value = "/allHostlers", method = RequestMethod.GET)
-	public String allHostlers(Model model) {
-		//hostlerService.editHostler(hostler);
-		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
-		List<Hostler> hostlers=hostlerService.getallhostlers();
-	  for (Hostler hostler : hostlers) {
-		if(hostlerRoomMappings.contains(hostler)){
-			hostler.setRoomAssigned(true);
-		}
-	}
-	
-		model.addAttribute("hostlers",hostlers);
-
-	       return "home";
+	       return "redirect:/web/hostler/all";
 
 	}
 	
-	@RequestMapping (value="/createHostel",method=RequestMethod.POST)
+	
+	@RequestMapping (value="/hostel/create",method=RequestMethod.POST)
 	public String createHostel(Model model,@ModelAttribute("hostel") Hostel hostel,BindingResult result){
 		hostelValidator.validate(hostel, result);
 		if(result.hasErrors()){
@@ -130,37 +120,30 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			return "createHostel";
 		}
 		hostlerService.saveHostel(hostel);
-		return "redirect:/web/form/allHostels";
+		return "redirect:/web/hostel/all";
 		
 	}
-	@RequestMapping(value = "/deleteHostel/{hostelId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/hostel/delete/{hostelId}", method = RequestMethod.GET)
 	public String deleteHostel( Model model,@PathVariable("hostelId")Long  hostleId) {
 		hostlerService.deleteHostel(hostleId);
 
 	
-		  return "redirect:/web/form/allHostels";
+		  return "redirect:/web/hostel/all";
 	}
 	
 
 	
-	@RequestMapping(value = "/editHostel", method = RequestMethod.POST)
+	@RequestMapping(value = "/hostel/edit", method = RequestMethod.POST)
 	public String editHostel( Model model,@ModelAttribute("hostel") Hostel hostel) {
 		hostlerService.editHostel(hostel);
 		//model.addAttribute("host",hostlerService.getallhostlers());
 
-	       return "redirect:/web/form/allHostels";
-
-	}
-	@RequestMapping(value = "/allHostels", method = RequestMethod.GET)
-	public String allHostels(Model model) {
-		//hostlerService.editHostler(hostler);
-		model.addAttribute("host",hostlerService.getallhostels());
-
-	       return "homeHostel";
+	       return "redirect:/web/hostel/all";
 
 	}
 	
-	@RequestMapping (value="/createRoom",method=RequestMethod.POST)
+	
+	@RequestMapping (value="/hostel/room/create",method=RequestMethod.POST)
 	public String createRoom(Model model,@ModelAttribute("room") Room room,BindingResult result){
 		roomValidator.validate(room, result);
 		if(result.hasErrors()){
@@ -168,38 +151,31 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			return "createRoom";
 		}
 		hostlerService.saveRoom(room);
-		return "redirect:/web/form/allRooms";
+		return "redirect:/web/room/all";
 		
 	}
-	@RequestMapping(value = "/deleteRoom/{roomId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/hostel/room/delete/{roomId}", method = RequestMethod.GET)
 	public String deleteRoom( Model model,@PathVariable("roomId")Long  roomId) {
 		hostlerService.deleteRoom(roomId);
 
 	
-		  return "redirect:/web/form/allRooms";
+		  return "redirect:/web/room/all";
 	}
 	
 
 	
-	@RequestMapping(value = "/editRoom", method = RequestMethod.POST)
+	@RequestMapping(value = "/hostel/room/edit", method = RequestMethod.POST)
 	public String editRoom( Model model,@ModelAttribute("room") Room room) {
 		hostlerService.editRoom(room);
 		//model.addAttribute("host",hostlerService.getallhostlers());
 
-	       return "redirect:/web/form/allRooms";
-
-	}
-	@RequestMapping(value = "/allRooms", method = RequestMethod.GET)
-	public String allRooms(Model model) {
-		//hostlerService.editHostler(hostler);
-		model.addAttribute("room",hostlerService.getallrooms());
-
-	       return "homeRoom";
+	       return "redirect:/web/room/all";
 
 	}
 	
 	
-	@RequestMapping (value="/createExpense",method=RequestMethod.POST)
+	
+	@RequestMapping (value="/expense/create",method=RequestMethod.POST)
 	public String createExpense(Model model,@ModelAttribute("expense")  Expense expense,BindingResult result){
 		expenseValidator.validate(expense, result);
 		if(result.hasErrors()){
@@ -209,30 +185,30 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		else{
 			
 		hostlerService.saveExpense(expense);
-		return "redirect:/web/allExpenses";
+		return "redirect:/web/expense/all";
 		}
 		
 	}
-	@RequestMapping(value = "/deleteExpense/{expenseId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/expense/delete/{expenseId}", method = RequestMethod.GET)
 	public String deleteExpense( Model model,@PathVariable("expenseId")Long  expenseId) {
 		hostlerService.deleteExpense(expenseId);
 
 	
-		  return "redirect:/web/allExpenses";
+		  return "redirect:/web/expense/all";
 	}
 	
 
 	
-	@RequestMapping(value = "/editExpense", method = RequestMethod.POST)
+	@RequestMapping(value = "/expense/edit", method = RequestMethod.POST)
 	public String editExpense( Model model,@ModelAttribute("expense") Expense expense) {
 		hostlerService.editExpense(expense);
 		//model.addAttribute("host",hostlerService.getallhostlers());
 
-	       return "redirect:/web/allExpenses";
+	       return "redirect:/web/expense/all";
 
 	}
 	
-	@RequestMapping(value="/createHostlerRoomMapping",method=RequestMethod.POST)
+	@RequestMapping(value="/hostler/room/mapping/create",method=RequestMethod.POST)
 	public String createHostlerRoomMappingLand(Model model,@ModelAttribute("hostlerRoomMapping") HostlerRoomMapping hostlerRoomMapping){
 		HostlerRoomMapping hostlerRoomMappingFromDb=hostlerService.getAssign(hostlerRoomMapping.getHostlerId());
 		
@@ -246,18 +222,11 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		//model.addAttribute("rooms",hostlerService.getallAssigns());
 		model.addAttribute("hostlerId",hostlerRoomMapping);
 		
-		  return "redirect:/web/form/allHostlers";
+		  return "redirect:/web/hostler/all";
 		
 	}
 
 
-	@RequestMapping(value="/hostlersRooms" ,method=RequestMethod.GET)
-	public String hostlersRooms(Model model){
-		
-		model.addAttribute("hostlersRoom",hostlerService.getHostlersRooms());
-		return "hostlersRooms";
-		
-	}
 	
 	/*@RequestMapping(value="/payersDetails" ,method=RequestMethod.GET)
 	public String payersDetails(Model model){
@@ -265,7 +234,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		return "selectDetails";
 	}*/
 
-	@RequestMapping (value="/createPayment",method=RequestMethod.POST)
+	@RequestMapping (value="/payment/create",method=RequestMethod.POST)
 	public String createPayment(Model model,@ModelAttribute("payments") Payments payments,BindingResult result){
 		paymentValidator.validate(payments, result);
 		if(result.hasErrors()){
@@ -273,17 +242,10 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			return "createPayment";
 		}
 		hostlerService.savePayment(payments);
-		return "redirect:/web/form/allPayments";
+		return "redirect:/web/payment/all";
 		
 	}
-	@RequestMapping(value = "/allPayments", method = RequestMethod.GET)
-	public String allPayments(Model model) {
-		//hostlerService.editHostler(hostler);
-		model.addAttribute("payments",hostlerService.getPaymentDetails());
-
-	       return "Payments";
-
-	}
+	
 
 
 }

@@ -59,7 +59,7 @@ function isFormContainsErrors(){
 <body>
 <body>
 
-<form:form action="${pageContext.servletContext.contextPath}/web/form/createPayment" method="post" modelAttribute="payments" onsubmit="return onSubmit()">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/payment/create" method="post" modelAttribute="payments" onsubmit="return onSubmit()">
 <input type="hidden" name="hostlerId" value="${hostlerId}"/>
 <table>
 

@@ -58,6 +58,11 @@
 		<put-attribute name="title-content" value="All Hostlers" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/home.jsp" />
 	</definition>
+	<definition name="unpaidHostlerSearch" extends="template-main">
+		<put-attribute name="header-title-content" value="unpaid Hostlers" />
+		<put-attribute name="title-content" value="unpaid Hostlers" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/unpaidHostlerSearch.jsp" />
+	</definition>
 	
 	<definition name="createRoom" extends="template-main">
 		<put-attribute name="header-title-content" value="create Room" />

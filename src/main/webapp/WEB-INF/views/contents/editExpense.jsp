@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<form:form action="${pageContext.servletContext.contextPath}/web/form/editExpense" method="post" modelAttribute="expense">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/expense/edit" method="post" modelAttribute="expense">
 <input type=hidden name="expenseId" value="${expense.expenseId}">
 <table>
 <tr>

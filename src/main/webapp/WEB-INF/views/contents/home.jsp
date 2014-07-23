@@ -1,67 +1,58 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
-<h1>
-	Welcome!
-</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
-<table class="grid">
+<table class="grid" cellpadding="8" cellspacing="0">
 <tr>
-<td>
+<th>
 <b>
  Name
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  FirstName
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  LastName
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  Age
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  Sex
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  Qualification
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  DateOfJoining
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  MobileNumber
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  Address
 </b>
-</td>
-<td colspan="4">
+</th>
+<th colspan="4">
 <b>
 Actions
 </b>
-</td>
+</th>
 </tr>
 <c:forEach items="${hostlers}" var="hostler">
 <tr>
@@ -94,21 +85,21 @@ ${hostler.address}
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/form/deleteHostler/${hostler.hostlerId}">Delete Hostler</a>
+<a href="${pageContext.servletContext.contextPath}/web/form/hostler/delete/${hostler.hostlerId}">Delete Hostler</a>
 
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/editHostlerLand/${hostler.hostlerId}">Edit Hostler</a>
+<a href="${pageContext.servletContext.contextPath}/web/hostler/edit/${hostler.hostlerId}">Edit Hostler</a>
 
 </td>
 <td>
 <c:choose>
 <c:when test="${hostler.roomAssigned==true}">
-<a href="${pageContext.servletContext.contextPath}/web/createHostlerRoomMappingLand/${hostler.hostlerId}">Re Assign</a>
+<a href="${pageContext.servletContext.contextPath}/web/hostler/room/mapping/create/${hostler.hostlerId}">Re Assign</a>
 </c:when>
 <c:otherwise>
-<a href="${pageContext.servletContext.contextPath}/web/createHostlerRoomMappingLand/${hostler.hostlerId}">Assign</a>
+<a href="${pageContext.servletContext.contextPath}/web/hostler/room/mapping/create/${hostler.hostlerId}">Assign</a>
 </c:otherwise>
 </c:choose>
 
@@ -118,7 +109,7 @@ ${hostler.address}
 
 <td>
 <c:if test="${unpaid==1}">
-<a href="${pageContext.servletContext.contextPath}/web/hostler/createPaymentLand/${hostler.hostlerId}?actualDate=${hostler.actualDate}">Add Payment</a>
+<a href="${pageContext.servletContext.contextPath}/web/hostler/Payment/create/${hostler.hostlerId}?actualDate=${hostler.actualDate}">Add Payment</a>
 </c:if>
 </td></tr>
 
@@ -126,5 +117,4 @@ ${hostler.address}
 
 </table>
 
-</body>
-</html>
+

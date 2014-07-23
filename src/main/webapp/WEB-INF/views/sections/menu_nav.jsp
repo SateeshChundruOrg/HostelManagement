@@ -17,55 +17,51 @@
 	   	    	}
 	   	    });
 	    
-	    if(url.indexOf('${pageContext.servletContext.contextPath}/web/') != -1
-	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/from/') != -1) {
+	    if(url.indexOf('${pageContext.servletContext.contextPath}/web/hostler') != -1
+	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/form/hostler') != -1) {
 	    	
 			$('#hostler').addClass('current');
 			
-			if(url.indexOf('createHostlerLand') != -1){
-				$('#company-create').addClass('current');
+			if(url.indexOf('create') != -1){
+				$('#hostler-create').addClass('current');
 			} 
-			else if(url.indexOf('live/all') != -1){
-				$('#company-live-all').addClass('current');
-			}
-			 else if(url.indexOf('all') != -1){
-				$('#company-all').addClass('current');
-			}
-			 
-			
-			
-			else if(url.indexOf('/employee/detail') != -1){
-				$('#company-emp-detail').addClass('current');
-			}
-	    } else if(url.indexOf('${pageContext.servletContext.contextPath}/web/invoice') != -1
-	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/from/invoice') != -1) {
-	    	
-			$('#invoice').addClass('current');
-			
-			if(url.indexOf('create') != -1){
-				$('#invoice-create').addClass('current');
-			} else if(url.indexOf('companys/all')!=-1){
-				
-				$('#invoice-comapnys-all').addClass('current');
-			}
-			
 			else if(url.indexOf('all') != -1){
-				$('#invoice-all').addClass('current');
+				$('#hostler-all').addClass('current');
 			}
-	    } 
-	    
-	    
-	    
-	    else if(url.indexOf('${pageContext.servletContext.contextPath}/web/purchase') != -1
-	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/from/purchase') != -1) {
+			else if(url.indexOf('hostler/unpaid/search') != -1){
+				$('#hostler-unpaid-search').addClass('current');
+			}
+	    }
+	    else if(url.indexOf('${pageContext.servletContext.contextPath}/web/hostel') != -1
+	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/form/hostel') != -1) {
 	    	
-			$('#purchase').addClass('current');
+			$('#hostel').addClass('current');
 			
-			if(url.indexOf('create') != -1){
-				$('#purchase-create').addClass('current');
-			} else if(url.indexOf('all') != -1){
-				$('#purchase-all').addClass('current');
+			if(url.indexOf('hostel/create') != -1){
+				$('#hostel-create').addClass('current');
+			} 
+			else if(url.indexOf('hostel/all') != -1){
+				$('#hostel-all').addClass('current');
 			}
+			else if(url.indexOf('room/create') != -1){
+				$('#room-create').addClass('current');
+			}
+			else if(url.indexOf('room/all') != -1){
+				$('#room-all').addClass('current');
+			}
+	    }
+	    else if(url.indexOf('${pageContext.servletContext.contextPath}/web/expense') != -1
+	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/from/expense') != -1) {
+	    	
+			$('#expense').addClass('current');
+			
+			if(url.indexOf('expense/create') != -1){
+				$('#expense-create').addClass('current');
+			} 
+			else if(url.indexOf('expense/all') != -1){
+				$('#expense-all').addClass('current');
+			}
+	    
 	    } else {
 	    	$('#home').addClass('current');
 	    }
@@ -88,48 +84,51 @@
 			<ul></ul>
 		</li>
 		<li id="hostler">
-			<a href="${pageContext.servletContext.contextPath}/web/allHostlers">All Hostlers</a>
+			<a href="${pageContext.servletContext.contextPath}/web/hostler/all">Hostler</a>
 			<ul>
-				<li id="company-create">
-					<a href="${pageContext.servletContext.contextPath}/web/createHostlerLand">Create Hostler</a>
+				<li id="hostler-create">
+					<a href="${pageContext.servletContext.contextPath}/web/hostler/create">Create Hostler</a>
 				</li>
-				<li id="company-all">
-					<a href="${pageContext.servletContext.contextPath}/web/company/all">All Companies</a>
+				<li id="hostler-all">
+					<a href="${pageContext.servletContext.contextPath}/web/hostler/all">All Hostlers</a>
 				</li>
-				<li id="company-live-all">
-					<a href="${pageContext.servletContext.contextPath}/web/company/live/all">Live Companies</a>
-				</li>
-				<li id="company-emp-detail">
-					<a href="${pageContext.servletContext.contextPath}/web/company/land/employee/detail">Company Employee Detail</a>
+				<li id="hostler-unpaid-search">
+					<a href="${pageContext.servletContext.contextPath}/web/hostler/unpaid/search">Unpaid Hostler Search</a>
 				</li>
 				
-				
-				
+					
 			</ul>
 		</li>
-		<li id="invoice">
-			<a href="${pageContext.servletContext.contextPath}/web/invoice/land/all">Invoices</a>
+		<li id="hostel">
+			<a href="${pageContext.servletContext.contextPath}/web/hostel/all">Hostel</a>
 			<ul>
-				<li id="invoice-create">
-					<a href="${pageContext.servletContext.contextPath}/web/invoice/land/create">Create Invoice</a>
+				<li id="hostel-create">
+					<a href="${pageContext.servletContext.contextPath}/web/hostel/create">Create Hostel</a>
 				</li>
-				<li id="invoice-all">
-					<a href="${pageContext.servletContext.contextPath}/web/invoice/land/all">Invoices</a>
+				<li id="hostel-all">
+					<a href="${pageContext.servletContext.contextPath}/web/hostel/all">All Hostelss</a>
+				</li>
+				<li id="room-create">
+					<a href="${pageContext.servletContext.contextPath}/web/hostel/room/create">create room</a>
+				</li>
+				<li id="room-all">
+					<a href="${pageContext.servletContext.contextPath}/web/hostel/room/all">All Rooms</a>
+				</li>		
+			</ul>
+		</li>
+		<li id="expense">
+			<a href="${pageContext.servletContext.contextPath}/web/expense/all">Expense</a>
+			<ul>
+				<li id="expense-create">
+					<a href="${pageContext.servletContext.contextPath}/web/expense/create">Enter Expense</a>
+				</li>
+				<li id="expense-all">
+					<a href="${pageContext.servletContext.contextPath}/web/expense/all">All Expensess</a>
 				</li>
 				
-				<li id="invoice-comapnys-all">
-					<a class="tzoLink" href="${pageContext.servletContext.contextPath}/web/invoice/companys/all">All Invoices</a>
-				</li>
+					
 			</ul>
-		</li>
-		<li id="purchase">
-			<a href="${pageContext.servletContext.contextPath}/web/purchase/land/all">Payments</a>
-			<ul>
-				<li id="purchase-all">
-					<a href="${pageContext.servletContext.contextPath}/web/purchase/land/all">Purchases</a>
-				</li>
-			</ul>
-		</li>
+		
 		<li id="setting">
 			<a href="#">Settings</a>
 			<ul></ul>

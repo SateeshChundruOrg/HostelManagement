@@ -51,7 +51,7 @@ function isFormContainsErrors(){
 </script>
 </head>
 <body>
-<form:form action="${pageContext.servletContext.contextPath}/web/form/createExpense" method="post" modelAttribute="expense" onsubmit="return onSubmit()">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/expense/create" method="post" modelAttribute="expense" onsubmit="return onSubmit()">
 <table>
 <tr>
 <td>Reason</td> <td> <form:input path="expense"/></td><td><span class="error"><form:errors path="expense"></form:errors></span>

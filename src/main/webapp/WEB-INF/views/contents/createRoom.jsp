@@ -2,18 +2,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<style>
-.error{
-color:red
-}
-</style>
-</head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -50,7 +38,7 @@ function isFormContainsErrors(){
 </Script>
 </head>
 <body>
-<form:form action="${pageContext.servletContext.contextPath}/web/form/createRoom" method="post" modelAttribute="room"  onsubmit="return onSubmit()">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/hostel/room/create" method="post" modelAttribute="room"  onsubmit="return onSubmit()">
 <table >
 <tr>
 <td>RoomNo</td> <td> <form:input path="roomNumber"/></td>
@@ -76,5 +64,3 @@ function isFormContainsErrors(){
 </table>
 
 </form:form>
-</body>
-</html>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="${pageContext.servletContext.contextPath}/web/form/editHostel" method="post" modelAttribute="hostel">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/hostel/edit" method="post" modelAttribute="hostel">
 <input type=hidden name="hostelId" value="${hostel.hostelId}">
 <table>
 <tr>

@@ -5,18 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<style>
-.error{
-color:red
-}
-</style>
-</head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -71,7 +60,7 @@ function isFormContainsErrors(){
 </script>
 <body>
 
-<form:form action="${pageContext.servletContext.contextPath}/web/form/createHostler" method="post" modelAttribute="hostler"  onsubmit="return onSubmit()">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/hostler/create" method="post" modelAttribute="hostler"  onsubmit="return onSubmit()">
 <table>
 <tr id="first">
 <td>Name*</td>     <td>  <form:input path="name" placeholder="First name"/></td><td><span id="name_error" class="error"><form:errors path="name"></form:errors></span></td>
@@ -121,5 +110,3 @@ Mobile Number*</td><td> <form:input path="mobileNumber"/></td>
 </tr>
 </table>
 </form:form>
-</body>
-</html>

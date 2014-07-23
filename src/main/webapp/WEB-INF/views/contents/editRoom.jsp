@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="${pageContext.servletContext.contextPath}/web/form/editRoom" method="post" modelAttribute="room">
+<form:form action="${pageContext.servletContext.contextPath}/web/form/hostel/room/edit" method="post" modelAttribute="room">
 <input type=hidden name="roomId" value="${room.roomId}">
 <table>
 <tr>
