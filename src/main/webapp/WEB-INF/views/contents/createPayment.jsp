@@ -76,11 +76,11 @@ function isFormContainsErrors(){
 </tr>
 
 <tr>
-<td>ActualDate</td>        <td>   <form:input path="actualDate" value="${actualDate}"/></td>
+<td>ActualDate</td>        <td>   <form:input path="actualDate" value="${actualDate}" class="Date"/></td>
 <td><span id="actualDate_error" class="error"><form:errors path="actualDate"></form:errors></span></td>
 </tr>
 <tr>
-<td>PaidDate </td>      <td>    <form:input path="paidDate"/></td>
+<td>PaidDate </td>      <td>    <form:input path="paidDate" class="Date"/></td>
 <td><span id="paidDate_error" class="error"><form:errors path="paidDate"></form:errors></span></td>
 </tr>
 <!-- <tr>

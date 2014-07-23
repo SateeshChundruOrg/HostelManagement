@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td>Date</td> <td> 
-<form:input path="date" value="${expense.date}"/>
+<form:input path="date" value="${expense.date}" class="Date"/>
 </td>
 </tr>
 

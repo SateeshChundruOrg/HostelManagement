@@ -9,11 +9,11 @@
 <table>
 <tr>
 <td>Enter Starting Date:</td>
-<td><input type="text"  name="fromDate"></td>
+<td><input type="text" id="fromDate"  name="fromDate" class="Date"></td>
 </tr>
 <tr>
 <td>Enter Ending Date:</td>
-<td><input type="text"  name="toDate"></td>
+<td><input type="text" id="toDate" name="toDate" class="Date"></td>
 </tr>
 <tr>
 <td><input type="submit" name="submit" value="Submit"></td>

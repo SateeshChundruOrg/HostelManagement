@@ -4,21 +4,10 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style>
-.error{
-color:red
-}
-</style>
-</head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
+	
 	//$("#first").hide();
 });
 
@@ -46,7 +35,7 @@ function isFormContainsErrors(){
 	if(date==''){
 		$("#date_error").html("date is required");
 	}
-	
+	 
 }
 </script>
 </head>
@@ -62,7 +51,7 @@ function isFormContainsErrors(){
 <td><span id="amount_error" class="error"><form:errors path="amount"></form:errors></span></td>
 </tr>
 <tr>
-<td>Date</td> <td> <form:input path="date"/></td>
+<td>Date</td> <td> <form:input path="date" class="Date"/></td>
 <td><span id="date_error" class="error"><form:errors path="date"></form:errors></span></td>
 </tr>
 
@@ -72,5 +61,3 @@ function isFormContainsErrors(){
 </table>
 
 </form:form>
-</body>
-</html>
