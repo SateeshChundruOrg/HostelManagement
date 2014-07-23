@@ -20,7 +20,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
+
+
+
+
+import com.ateam.hostelmanagement.Validators.ExpenseValidator;
+import com.ateam.hostelmanagement.Validators.HostelValidator;
 import com.ateam.hostelmanagement.Validators.HostlerValidator;
+import com.ateam.hostelmanagement.Validators.PaymentValidator;
+import com.ateam.hostelmanagement.Validators.RoomValidator;
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
 import com.ateam.hostelmanagement.bean.Hostler;
@@ -38,6 +46,14 @@ public class WebFormController {
 	HostlerService hostlerService;
     @Autowired
     HostlerValidator hostlerValidator;
+    @Autowired
+    RoomValidator roomValidator;
+    @Autowired
+    HostelValidator hostelValidator;
+    @Autowired
+    ExpenseValidator expenseValidator;
+    @Autowired
+    PaymentValidator paymentValidator;
 	
 private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -107,7 +123,12 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	}
 	
 	@RequestMapping (value="/createHostel",method=RequestMethod.POST)
-	public String createHostel(Model model,@ModelAttribute("hostel") Hostel hostel){
+	public String createHostel(Model model,@ModelAttribute("hostel") Hostel hostel,BindingResult result){
+		hostelValidator.validate(hostel, result);
+		if(result.hasErrors()){
+			model.addAttribute("hostel",hostel);
+			return "createHostel";
+		}
 		hostlerService.saveHostel(hostel);
 		return "redirect:/web/form/allHostels";
 		
@@ -140,8 +161,12 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	}
 	
 	@RequestMapping (value="/createRoom",method=RequestMethod.POST)
-	public String createRoom(Model model,@ModelAttribute("room") Room room){
-		
+	public String createRoom(Model model,@ModelAttribute("room") Room room,BindingResult result){
+		roomValidator.validate(room, result);
+		if(result.hasErrors()){
+			model.addAttribute("room",room);
+			return "createRoom";
+		}
 		hostlerService.saveRoom(room);
 		return "redirect:/web/form/allRooms";
 		
@@ -175,14 +200,14 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	
 	
 	@RequestMapping (value="/createExpense",method=RequestMethod.POST)
-	public String createExpense(Model model,@ModelAttribute("expense") @Valid Expense expense,BindingResult result){
-		
+	public String createExpense(Model model,@ModelAttribute("expense")  Expense expense,BindingResult result){
+		expenseValidator.validate(expense, result);
 		if(result.hasErrors()){
-			
+			model.addAttribute("expense",expense);
 			return "createExpense";
 		}
 		else{
-			model.addAttribute("expense",expense);
+			
 		hostlerService.saveExpense(expense);
 		return "redirect:/web/allExpenses";
 		}
@@ -241,7 +266,12 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	}*/
 
 	@RequestMapping (value="/createPayment",method=RequestMethod.POST)
-	public String createPayment(Model model,@ModelAttribute("payments") Payments payments){
+	public String createPayment(Model model,@ModelAttribute("payments") Payments payments,BindingResult result){
+		paymentValidator.validate(payments, result);
+		if(result.hasErrors()){
+			model.addAttribute("payments",payments);
+			return "createPayment";
+		}
 		hostlerService.savePayment(payments);
 		return "redirect:/web/form/allPayments";
 		

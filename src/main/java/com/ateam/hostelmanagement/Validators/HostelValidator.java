@@ -1,11 +1,12 @@
 package com.ateam.hostelmanagement.Validators;
 
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.ateam.hostelmanagement.bean.Hostel;
-
+@Component
 public class HostelValidator implements Validator{
 
 	@Override
@@ -19,7 +20,7 @@ public class HostelValidator implements Validator{
 		// TODO Auto-generated method stub
 		
 		Hostel hostel=(Hostel)arg0;
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "hostelNmae","required.hostelName","hostelName is mandatory" );
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "hostelName","required.hostelName","hostelName is mandatory" );
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "hostelAddress","required.hostelAddress","hostelAddress is mandatory" );
 	}
 

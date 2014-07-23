@@ -9,19 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table>
+<table class="grid" cellpadding=8 cellspaceing=0>
 <tr>
-<td>
+<th>
 HostelName
-</td>
-<td>
+</th>
+<th>
 HostelAddress
-</td>
-<td colspan="3">
+</th>
+<th colspan="3">
 <b>
 Actions
 </b>
-</td>
+</th>
 </tr>
 <c:forEach items="${host}" var="hostel">
 <tr>

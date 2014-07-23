@@ -78,6 +78,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 }
 	@RequestMapping(value="/createRoomLand",method=RequestMethod.GET)
 	public String createRoomLand(Model model){
+		model.addAttribute("room",new Room());
 		model.addAttribute("hostels",hostlerService.getallhostels());
 		return "createRoom";
 }

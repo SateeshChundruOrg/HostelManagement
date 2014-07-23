@@ -12,22 +12,22 @@
 </head>
 <body>
 
-<table>
+<table class="grid" cellpadding=8 cellspaceing=0>
 <tr>
-<td>
+<th>
 RoomNumber
-</td>
-<td>
+</th>
+<th>
 No.of.Beds
-</td>
-<td>
+</th>
+<th>
 HostelName
-</td>
-<td colspan="3">
+</th>
+<th colspan="3">
 <b>
 Actions
 </b>
-</td>
+</th>
 </tr>
 <c:forEach items="${room}" var="room">
 <tr>
