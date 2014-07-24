@@ -1,5 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <table class="grid" cellpadding="8" cellspacing="0">
 <tr>
@@ -109,7 +113,7 @@ ${hostler.address}
 
 <td>
 <c:if test="${unpaid==1}">
-<a href="${pageContext.servletContext.contextPath}/web/hostler/Payment/create/${hostler.hostlerId}?actualDate=${hostler.actualDate}">Add Payment</a>
+<a href="${pageContext.servletContext.contextPath}/web/hostler/payment/create/${hostler.hostlerId}?actualDate=${hostler.actualDate}">Add Payment</a>
 </c:if>
 </td></tr>
 

@@ -63,6 +63,21 @@
 		<put-attribute name="title-content" value="unpaid Hostlers" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/unpaidHostlerSearch.jsp" />
 	</definition>
+	<definition name="createHostlerRoomMapping" extends="template-main">
+		<put-attribute name="header-title-content" value="Hostler room " />
+		<put-attribute name="title-content" value="Hostler room" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/createHostlerRoomMapping.jsp" />
+	</definition>
+	<definition name="createPayment" extends="template-main">
+		<put-attribute name="header-title-content" value="Make Payment " />
+		<put-attribute name="title-content" value="Make Payment" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/createPayment.jsp" />
+	</definition>
+	<definition name="Payments" extends="template-main">
+		<put-attribute name="header-title-content" value=" All Payments " />
+		<put-attribute name="title-content" value="All Payments" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/Payments.jsp" />
+	</definition>
 	
 	<definition name="createRoom" extends="template-main">
 		<put-attribute name="header-title-content" value="create Room" />

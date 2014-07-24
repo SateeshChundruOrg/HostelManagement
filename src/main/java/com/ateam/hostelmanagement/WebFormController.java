@@ -208,8 +208,8 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 
 	}
 	
-	@RequestMapping(value="/hostler/room/mapping/create",method=RequestMethod.POST)
-	public String createHostlerRoomMappingLand(Model model,@ModelAttribute("hostlerRoomMapping") HostlerRoomMapping hostlerRoomMapping){
+	@RequestMapping(value="/hostler/room/mapping/create/{hostlerId}",method=RequestMethod.POST)
+	public String createHostlerRoomMappingLand(Model model,@ModelAttribute("hostlerRoomMapping") HostlerRoomMapping hostlerRoomMapping,BindingResult result){
 		HostlerRoomMapping hostlerRoomMappingFromDb=hostlerService.getAssign(hostlerRoomMapping.getHostlerId());
 		
 		if(hostlerRoomMappingFromDb==null){

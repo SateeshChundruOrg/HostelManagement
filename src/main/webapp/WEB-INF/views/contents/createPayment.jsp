@@ -4,18 +4,6 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style>
-.error{
-color:red
-}
-</style>
-</head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -55,9 +43,7 @@ function isFormContainsErrors(){
 	
 }
 </Script>
-</head>
-<body>
-<body>
+
 
 <form:form action="${pageContext.servletContext.contextPath}/web/form/payment/create" method="post" modelAttribute="payments" onsubmit="return onSubmit()">
 <input type="hidden" name="hostlerId" value="${hostlerId}"/>
@@ -65,11 +51,14 @@ function isFormContainsErrors(){
 
 
 <tr>
-
-
+<td>HostlerId</td>
+<td><form:input path="hostlerId" value="${hostlerId}"/></td>
+</tr>
+<tr>
 <td>ActualAmount</td><td>     <form:input path="actualAmount"/></td>
 <td><span id="actualAmount_error" class="error"><form:errors path="actualAmount"></form:errors></span></td>
-
+</tr>
+<tr>
 <td>Paid Amount</td><td>      <form:input path="paidAmount"/></td>
 <td><span id="paidAmount_error" class="error"><form:errors path="paidAmount"></form:errors></span></td>
 
@@ -91,6 +80,3 @@ function isFormContainsErrors(){
 </tr>
 </table>
 </form:form>
-
-</body>
-</html>
