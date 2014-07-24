@@ -37,11 +37,7 @@
  Qualification
 </b>
 </th>
-<th>
-<b>
- DateOfJoining
-</b>
-</th>
+
 <th>
 <b>
  MobileNumber
@@ -78,9 +74,7 @@ ${hostler.sex}
 <td>
 ${hostler.qualification}
 </td>
-<td>
-${hostler.dateOfJoining}
-</td>
+
 <td>
 ${hostler.mobileNumber}
 </td>

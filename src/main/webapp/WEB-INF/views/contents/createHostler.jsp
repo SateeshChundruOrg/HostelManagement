@@ -91,9 +91,7 @@ function isFormContainsErrors(){
 <td>Qualification*</td><td> <form:input path="qualification"/></td>
 <td><span id="qualification_error" class="error"><form:errors path="qualification"></form:errors></span></td>
 </tr>
-<tr>
-<td>Date Of Join*</td><td>    <form:input path="dateOfJoining" class="Date"/></td><td><span class="error"><form:errors path="dateOfJoining"></form:errors></span></td>
-</tr>
+
 
 <tr>
 <td>

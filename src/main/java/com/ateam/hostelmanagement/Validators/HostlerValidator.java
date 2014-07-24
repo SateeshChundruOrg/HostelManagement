@@ -25,13 +25,13 @@ public class HostlerValidator implements Validator
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name","required.name","name is mandatory");
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "sex","required.sex","sex is required" );
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "age","required.age","age is required" );
-	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfJoining","required.dateOfJoining","date is required");	
+	//ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfJoining","required.dateOfJoining","date is required");	
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors,"mobileNumber","required.mobileNumber","number is required");
-	if(!Api.isEmptyString(hostler.getDateOfJoining())){
-	   Date date =DateValidator.getInstance().validate(hostler.getDateOfJoining(),"yyyy-MM-dd");
-	   if(date==null){
-		   errors.rejectValue("dateOfJoining","required.dateOfJoining","Invalid date please enter correct date");
-	   }
+//	if(!Api.isEmptyString(hostler.getDateOfJoining())){
+//	   Date date =DateValidator.getInstance().validate(hostler.getDateOfJoining(),"yyyy-MM-dd");
+//	   if(date==null){
+//		   errors.rejectValue("dateOfJoining","required.dateOfJoining","Invalid date please enter correct date");
+//	   }
 	   if(!Api.isEmptyString(hostler.getMobileNumber())){
 		   if(hostler.getMobileNumber().length()!=10){
 			   errors.rejectValue("mobileNumber","required.mobileNumber","must be 10 digit");
@@ -39,4 +39,4 @@ public class HostlerValidator implements Validator
 	   }
 	}
 	}
-}
+

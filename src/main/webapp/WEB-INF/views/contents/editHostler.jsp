@@ -61,10 +61,10 @@ function isFormContainsErrors(){
 <body>
 
 <form:form action="${pageContext.servletContext.contextPath}/web/form/hostler/edit" method="post" modelAttribute="hostler" onsubmit="return onSubmit()" >
-<%-- <input type=hidden name="hostlerId" value="${hostler.hostlerId}"> --%>
+ <input type=hidden name="hostlerId" value="${hostler.hostlerId}">
 <table>
 <tr>
-<td>Name</td>     <td>  <form:input path="name" /></td>
+<td>Name*</td>     <td>  <form:input path="name" /></td>
 <td><span id="name_error" class="error"><form:errors path="name"></form:errors></span></td>
 </tr>
 
@@ -72,34 +72,34 @@ function isFormContainsErrors(){
 
 
 <td>First Name</td><td>     <form:input path="firstName" /></td>
-
+</tr>
+<tr>
 <td>Last Name</td><td>      <form:input path="lastName" /></td>
 
 </tr>
 <tr>
-<td>Age</td>        <td>   <form:input path="age" /></td>
+<td>Age*</td>        <td>   <form:input path="age" /></td>
 <td><span id="age_error" class="error"><form:errors path="age"></form:errors></span></td>
 </tr>
 <tr>
-<td>Sex </td>      <td>    <form:input path="sex" /></td>
+<td>Sex* </td>      <td><form:radiobutton path="sex" value="M" checked="checked"/>Male 
+                   <form:radiobutton path="sex" value="F"/>Female
+                   </td>
 <td><span id="sex_error" class="error"><form:errors path="sex"></form:errors></span></td>
 </tr>
 <tr>
-<td>Qualification</td><td> <form:input path="qualification" /></td>
+<td>Qualification*</td><td> <form:input path="qualification" /></td>
 <td><span id="qualification_error" class="error"><form:errors path="qualification"></form:errors></span></td>
 </tr>
-<tr>
-<td>Date Of Join</td><td>    <form:input path="dateOfJoining" class="Date"/></td>
-<td><span id="dateOfJoining_error" class="error"><form:errors path="dateOfJoining"></form:errors></span></td>
-</tr>
+
 
 <tr>
 <td>
-Mobile Number</td><td> <form:input path="mobileNumber"/></td>
+Mobile Number*</td><td> <form:input path="mobileNumber"/></td>
 <td><span id="mobileNumber_error" class="error"><form:errors path="mobileNumber"></form:errors></span></td>
 </tr>
 <tr>
-<td>Address</td><td><form:textarea path="address" rows="5" cols="20"></form:textarea>
+<td>Address*</td><td><form:textarea path="address" rows="5" cols="20"></form:textarea>
 <td><span id="address_error" class="error"><form:errors path="address"></form:errors></span></td>
 
 </tr>
