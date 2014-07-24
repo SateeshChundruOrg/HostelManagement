@@ -54,6 +54,28 @@
 	</bean>
 	
 	
+	    <bean id="authenticationSuccessHandler" class="com.ateam.hostelmanagement.handler.CustomAuthenticationSuccessHandler" />
+	
+	<security:http auto-config="true" use-expressions="true" access-denied-page="/accessDenied" authentication-manager-ref="operationAuthenticationManager">
+		<security:intercept-url pattern="/" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" />
+		<security:intercept-url pattern="/web*" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" />
+		<security:intercept-url pattern="/web/**" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" />
+		<security:form-login login-page="/login" default-target-url="/web" authentication-failure-url="/loginfailed" authentication-success-handler-ref="authenticationSuccessHandler"/>
+		<security:remember-me/>
+		<security:logout logout-url="/logout" invalidate-session="true" logout-success-url="/login" />
+	</security:http>
+	
+	<security:authentication-manager id="operationAuthenticationManager">
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT `oppUserName` AS `username`, `oppPassword` AS `password`, `enabled` FROM `OppUsers` WHERE `oppUserName` = ?" 
+           		authorities-by-username-query="SELECT ? AS `username`, 'ROLE_AGENT' AS `authority`" 
+           />
+		</security:authentication-provider>
+	</security:authentication-manager>
+    
+	
+	
 	<import resource="tiles-context.xml" />
 			
 		

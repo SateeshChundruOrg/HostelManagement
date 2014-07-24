@@ -122,3 +122,18 @@ CREATE TABLE `room` (
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
+
+CREATE TABLE `OppUsers` (
+  `oppId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `oppUserName` varchar(100) DEFAULT NULL,
+  `oppPassword` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `createdTime` datetime DEFAULT NULL,
+  `modifiedTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`oppId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1
+
