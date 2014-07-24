@@ -8,6 +8,7 @@ public class Payments {
 	private String actualDate;
 	private String paidDate;
 	private long hostlerId;
+	private String hostlerName;
 	public long getPaymentId() {
 		return paymentId;
 	}
@@ -44,6 +45,12 @@ public class Payments {
 	}
 	public void setPaidDate(String paidDate) {
 		this.paidDate = paidDate;
+	}
+	public String getHostlerName() {
+		return hostlerName;
+	}
+	public void setHostlerName(String hostlerName) {
+		this.hostlerName = hostlerName;
 	}
 
 }

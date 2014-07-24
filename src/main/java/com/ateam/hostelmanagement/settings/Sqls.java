@@ -43,5 +43,5 @@ public interface Sqls {
     public static String SELECT_UNPAID_HOSTLERID="SELECT hr.*,rhm.`dateOfJoining`,CONCAT(YEAR(?),'-',IF(MONTH(?)<10,CONCAT('0',MONTH(?)),MONTH(?)),'-',IF(DAY(rhm.`dateOfJoining`)<10,CONCAT('0',DAY(rhm.`dateOfJoining`)),DAY(rhm.`dateOfJoining`))) AS actualDate FROM  RoomHostlerMapping rhm  INNER JOIN hostler hr  ON (`rhm`.`hostlerId`=hr.`hostlerId`) WHERE DAY(rhm.dateOfJoining) BETWEEN  DAY(?) AND DAY(?) :extraCondition";
 
     public static String INSERT_PAYMENT="INSERT INTO Payments (paymentId,actualAmount,paidAmount,actualDate,paidDate,hostlerId) VALUES  (?,?,?,?,?,?)" ;
-    public static String SELECT_PAYMENTS="select * from Payments WHERE deleted=0";
+    public static String SELECT_PAYMENTS="SELECT h.`name` AS hostlerName,p.* FROM hostler h JOIN Payments p ON h.`hostlerId`=p.`hostlerId` WHERE p.deleted=0";
 }

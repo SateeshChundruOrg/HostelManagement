@@ -5,40 +5,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<table>
+
+
+<table class="grid" cellpadding="8" cellspacing="0">
 <tr>
-<td>
+<th>HostlerName</th>
+<th>
 <b>
 ActualAmount
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  PaidAmount
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  ActualDate
 </b>
-</td>
-<td>
+</th>
+<th>
 <b>
  PaidDate
 </b>
-</td>
+</th>
 
 
 </tr>
 <c:forEach items="${payments}" var="payments">
 <tr>
+<td> 
+${payments.hostlerName}
+</td>
 <td>
 ${payments.actualAmount}
 </td>
@@ -55,6 +54,3 @@ ${payments.paidDate}
 
 </table>
 
-
-</body>
-</html>
