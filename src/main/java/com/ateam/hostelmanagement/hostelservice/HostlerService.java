@@ -6,12 +6,18 @@ import java.util.List;
 
 
 
+
+
+
+import com.ateam.hostelmanagement.bean.CurrentPayers;
 import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
 import com.ateam.hostelmanagement.bean.Hostler;
+import com.ateam.hostelmanagement.bean.HostlerSearch;
 import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.bean.RoomSearch;
 
 public interface HostlerService {
 	
@@ -20,6 +26,10 @@ public interface HostlerService {
 	public void deleteHostler(long hostlerId);
     public void editHostler(Hostler hostler);
 	public Hostler getHostler(long hostlerId);
+	
+
+	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch);
+	public List<CurrentPayers> getCurrentHostlers();
 	
 	public void saveHostel(Hostel hostel);
     public List<Hostel>getallhostels();
@@ -32,6 +42,7 @@ public interface HostlerService {
     public void deleteRoom(long roomId);
     public void editRoom(Room room);
     public Room getRoom(long roomId);
+    public List<Room> getRoomSearch(RoomSearch roomSearch);
 	//Hostler getHostler(Long hostlerId);
 
 	

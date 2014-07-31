@@ -2,12 +2,15 @@ package com.ateam.hostelmanagement.hosteldao;
 
 import java.util.List;
 
+import com.ateam.hostelmanagement.bean.CurrentPayers;
 import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
 import com.ateam.hostelmanagement.bean.Hostler;
+import com.ateam.hostelmanagement.bean.HostlerSearch;
 import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.bean.RoomSearch;
 
 
 
@@ -19,7 +22,10 @@ public interface HostlerDao {
 	public void editHostler(Hostler hostler);
 	public Hostler getHostler(long hostlerId);
 
-  
+	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch);
+    public List<CurrentPayers> getCurrentHostlers();
+	
+	
     public void saveHostel(Hostel hostel);
     public List<Hostel>getallhostels();
     public void deleteHostel(long hostelId);
@@ -31,6 +37,7 @@ public interface HostlerDao {
     public void deleteRoom(long roomId);
     public void editRoom(Room room);
     public Room getRoom(long roomId);
+    public List<Room> getRoomSearch(RoomSearch roomsearch);
 	//Hostler getHostler(Long hostlerId);
 	
     public void saveExpense(Expense expense);

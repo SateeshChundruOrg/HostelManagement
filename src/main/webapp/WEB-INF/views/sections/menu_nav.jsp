@@ -81,7 +81,10 @@
 	<ul id="nav-menu" class="sf-menu sf-navbar">
 		<li id="home">
 			<a href="${pageContext.servletContext.contextPath}">Home</a>
-			<ul></ul>
+			<ul><li id="hostler-current-payers">
+					<a href="${pageContext.servletContext.contextPath}/web/hostler/current/payers">current payers</a>
+				</li>
+				</ul>
 		</li>
 		<li id="hostler">
 			<a href="${pageContext.servletContext.contextPath}/web/hostler/all">Hostler</a>
@@ -94,6 +97,9 @@
 				</li>
 				<li id="hostler-unpaid-search">
 					<a href="${pageContext.servletContext.contextPath}/web/hostler/unpaid/search">Unpaid Hostler Search</a>
+				</li>
+				<li id="hostler-search">
+					<a href="${pageContext.servletContext.contextPath}/web/hostler/search">Search</a>
 				</li>
 				
 					
@@ -113,7 +119,10 @@
 				</li>
 				<li id="room-all">
 					<a href="${pageContext.servletContext.contextPath}/web/hostel/room/all">All Rooms</a>
-				</li>		
+				</li>	
+				<li id="room-search">
+					<a href="${pageContext.servletContext.contextPath}/web/hostel/room/search">Search</a>
+				</li>	
 			</ul>
 		</li>
 		<li id="expense">

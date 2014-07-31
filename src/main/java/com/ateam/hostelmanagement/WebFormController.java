@@ -94,7 +94,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 //
 //       return "home";
 	
-		  return "redirect:/web/hostler/al";
+		  return "redirect:/web/hostler/all";
 	}
 	
 	@RequestMapping(value = "/hostler/edit", method = RequestMethod.POST)
@@ -151,7 +151,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			return "createRoom";
 		}
 		hostlerService.saveRoom(room);
-		return "redirect:/web/room/all";
+		return "redirect:/web/hostel/room/all";
 		
 	}
 	@RequestMapping(value = "/hostel/room/delete/{roomId}", method = RequestMethod.GET)
@@ -159,7 +159,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		hostlerService.deleteRoom(roomId);
 
 	
-		  return "redirect:/web/room/all";
+		  return "redirect:/web/hostel/room/all";
 	}
 	
 
@@ -169,7 +169,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		hostlerService.editRoom(room);
 		//model.addAttribute("host",hostlerService.getallhostlers());
 
-	       return "redirect:/web/room/all";
+	       return "redirect:/web/hostel/room/all";
 
 	}
 	
@@ -208,7 +208,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 
 	}
 	
-	@RequestMapping(value="/hostler/room/mapping/create/{hostlerId}",method=RequestMethod.POST)
+	@RequestMapping(value="/hostler/room/mapping/create",method=RequestMethod.POST)
 	public String createHostlerRoomMappingLand(Model model,@ModelAttribute("hostlerRoomMapping") HostlerRoomMapping hostlerRoomMapping,BindingResult result){
 		HostlerRoomMapping hostlerRoomMappingFromDb=hostlerService.getAssign(hostlerRoomMapping.getHostlerId());
 		

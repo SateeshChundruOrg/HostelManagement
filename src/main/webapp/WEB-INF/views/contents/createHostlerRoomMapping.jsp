@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body >
-<form:form action="${pageContext.servletContext.contextPath}/web/form/hostler/room/mapping/create/{hostlerId}" method="post" >
+<form:form action="${pageContext.servletContext.contextPath}/web/form/hostler/room/mapping/create" method="post" >
 <input type="hidden" name="hostlerId" value="${hostlerId}"/>
 <table >
 <tr>
@@ -31,7 +31,7 @@
 </tr>
 <tr>
 <td>DateOfJoining</td>
-<td> <input type="text" name="dateOfJoining" value="${hostlerRoomMapping.dateOfJoining}" class="Date"/></td>
+<td> <input type="text" id="dateOfJoining" name="dateOfJoining" value="${hostlerRoomMapping.dateOfJoining}" class="Date"/></td>
 </tr>
 <tr>
 <td><input type="submit" name="submit" value="Submit"/></td>

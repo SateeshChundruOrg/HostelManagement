@@ -63,6 +63,16 @@
 		<put-attribute name="title-content" value="unpaid Hostlers" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/unpaidHostlerSearch.jsp" />
 	</definition>
+	<definition name="hostlerSearch" extends="template-main">
+		<put-attribute name="header-title-content" value="searchHostler" />
+		<put-attribute name="title-content" value="searchHostler" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/hostlerSearch.jsp" />
+	</definition>
+	<definition name="hostlerCurrentPayers" extends="template-main">
+		<put-attribute name="header-title-content" value="currentHostler" />
+		<put-attribute name="title-content" value="currentHostler" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/currentPayers.jsp" />
+	</definition>
 	<definition name="createHostlerRoomMapping" extends="template-main">
 		<put-attribute name="header-title-content" value="Hostler room " />
 		<put-attribute name="title-content" value="Hostler room" />
@@ -84,6 +94,21 @@
 		<put-attribute name="title-content" value="create Room" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/createRoom.jsp" />
 	</definition>
+	<definition name="editRoom" extends="template-main">
+		<put-attribute name="header-title-content" value="Modify Room" />
+		<put-attribute name="title-content" value="Modify Room" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/editRoom.jsp" />
+	</definition>
+	<definition name="roomSearch" extends="template-main">
+		<put-attribute name="header-title-content" value="searchRoom" />
+		<put-attribute name="title-content" value="searchRoom" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/roomSearch.jsp" />
+	</definition>
+	<definition name="availableBeds" extends="template-main">
+		<put-attribute name="header-title-content" value="Beds available" />
+		<put-attribute name="title-content" value="Beds available" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/availableBeds.jsp" />
+	</definition>
 	<definition name="homeRoom" extends="template-main">
 		<put-attribute name="header-title-content" value="All Rooms" />
 		<put-attribute name="title-content" value="All Rooms" />
@@ -93,6 +118,11 @@
 		<put-attribute name="header-title-content" value="create Hostel" />
 		<put-attribute name="title-content" value="create Hostel" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/createHostel.jsp" />
+	</definition>
+	<definition name="editHostel" extends="template-main">
+		<put-attribute name="header-title-content" value="Modify hostel" />
+		<put-attribute name="title-content" value="Modify hostel" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/editHostel.jsp" />
 	</definition>
 	<definition name="homeHostel" extends="template-main">
 		<put-attribute name="header-title-content" value="All hostels" />

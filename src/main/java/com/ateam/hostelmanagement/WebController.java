@@ -11,6 +11,9 @@ import java.util.Locale;
 
 
 
+
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +25,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ateam.hostelmanagement.bean.CurrentPayers;
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
 import com.ateam.hostelmanagement.bean.Hostler;
 import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
+import com.ateam.hostelmanagement.bean.HostlerSearch;
 import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hostelservice.HostlerService;
 
 
@@ -37,6 +43,7 @@ import com.ateam.hostelmanagement.hostelservice.HostlerService;
 public class WebController {
 	@Autowired
 	HostlerService hostlerService;
+	
 	
 private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -85,6 +92,26 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	       return "home";
 
 	}
+	@RequestMapping(value="/hostler/search",method=RequestMethod.GET)
+	public String hostlerSearch(Model model){
+	     
+		model.addAttribute("search",new HostlerSearch());
+		return "hostlerSearch";
+	}
+	@RequestMapping(value="/hostler/search",method=RequestMethod.POST)
+	public String hostlerSearch2(Model model,HostlerSearch hostlerSearch){
+	     
+		model.addAttribute("search",new HostlerSearch());
+		model.addAttribute("hostlers",hostlerService.getHostlerSearch(hostlerSearch));
+	       return "home";
+	}
+	@RequestMapping(value = "/hostler/current/payers", method = RequestMethod.GET)
+	public String currentPayers(Model model) {
+		
+		List<CurrentPayers> hostlers=hostlerService.getCurrentHostlers();
+          model.addAttribute("hostlers",hostlers);
+	       return "hostlerCurrentPayers";
+	}
 	@RequestMapping(value="/hostel/create",method=RequestMethod.GET)
 	public String createHostelLand(Model model){
 		model.addAttribute("hostel", new Hostel());
@@ -128,6 +155,19 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 
 	       return "homeRoom";
 
+	}
+	@RequestMapping(value="/hostel/room/search",method=RequestMethod.GET)
+	public String roomSearch(Model model){
+	     
+		model.addAttribute("search",new RoomSearch());
+		return "roomSearch";
+	}
+	@RequestMapping(value="/hostel/room/search",method=RequestMethod.POST)
+	public String roomSearch(Model model,RoomSearch roomSearch){
+	     
+		model.addAttribute("search",new RoomSearch());
+		model.addAttribute("rooms",hostlerService.getRoomSearch(roomSearch));
+	       return "availableBeds";
 	}
  @RequestMapping(value="/expense/create",method=RequestMethod.GET)	
 	public String createExpenseLand(Model model){

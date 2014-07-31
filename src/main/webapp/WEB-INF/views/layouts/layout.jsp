@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Spoors EFFORT | <tiles:insertAttribute name="header-title-content" /></title>
+<title>Ateam | <tiles:insertAttribute name="header-title-content" /></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <tiles:insertAttribute name="css-content" />
 <tiles:insertAttribute name="js-content" />

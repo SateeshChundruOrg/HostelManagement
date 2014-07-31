@@ -6,15 +6,21 @@ import java.util.List;
 
 
 
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ateam.hostelmanagement.bean.CurrentPayers;
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
 import com.ateam.hostelmanagement.bean.Hostler;
 import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
+import com.ateam.hostelmanagement.bean.HostlerSearch;
 import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hosteldao.HostlerDao;
 import com.ateam.hostelmanagement.hostelservice.HostlerService;
 @Service
@@ -185,6 +191,21 @@ public class HostlerServiceImpl implements HostlerService{
 	public List<Payments> getPaymentDetails() {
 		// TODO Auto-generated method stub
 		return hostlerDao.getPaymentDetails();
+	}
+	@Override
+	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getHostlerSearch(hostlerSearch);
+	}
+	@Override
+	public List<CurrentPayers> getCurrentHostlers() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getCurrentHostlers();
+	}
+	@Override
+	public List<Room> getRoomSearch(RoomSearch roomSearch) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getRoomSearch(roomSearch);
 	}
 
 }

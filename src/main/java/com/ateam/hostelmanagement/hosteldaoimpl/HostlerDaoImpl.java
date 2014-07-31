@@ -3,7 +3,6 @@ package com.ateam.hostelmanagement.hosteldaoimpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,15 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.ateam.hostelmanagement.bean.CurrentPayers;
 import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
 import com.ateam.hostelmanagement.bean.Hostler;
+import com.ateam.hostelmanagement.bean.HostlerSearch;
 import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hosteldao.HostlerDao;
 import com.ateam.hostelmanagement.settings.Sqls;
 import com.ateam.hostelmanagement.util.Api;
@@ -317,7 +319,68 @@ public class HostlerDaoImpl implements HostlerDao {
 		List<Payments> payments=jdbcTemplet.query(Sqls.SELECT_PAYMENTS,new Object[]{},new BeanPropertyRowMapper<Payments>(Payments.class));
 		return payments;
 	}
+	@Override
+	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch) {
+       String sql=Sqls.SEARCH_HOSTLERS;
+       String where="";      
+       if(!Api.isEmptyString(hostlerSearch.getName())){
+    	   if(!Api.isEmptyString(where)){
+    		  where=where+" AND"; 
+    	   }
+    	   where=where+" name LIKE '%"+hostlerSearch.getName()+"%'";
+       }
+		
+       if(!Api.isEmptyString(hostlerSearch.getFirstName())){
+    	   
+    	   if(!Api.isEmptyString(where)){
+    		  where=where+" AND "; 
+    	   }
+    	   where=where+" firstName LIKE '%"+hostlerSearch.getFirstName()+"%'";
+       }
+       
+    if(!Api.isEmptyString(hostlerSearch.getLastName())){
+    	   
+    	   if(!Api.isEmptyString(where)){
+    		  where=where+" AND "; 
+    	   }
+	   where=where+" lastName LIKE '%"+hostlerSearch.getLastName()+"%'";
+       }
+
+    if(!Api.isEmptyString(hostlerSearch.getMobileNumber())){
+	   
+	   if(!Api.isEmptyString(where)){
+		  where=where+" AND "; 
+	   }
+	   where=where+" mobileNumber LIKE '%"+hostlerSearch.getMobileNumber()+"%'";
+     }
+       
+     if(Api.isEmptyString(where)){
+    	sql= sql.replace(":where", "");
+    	 
+     }else{
+    	 where="WHERE "+where;
+    	 sql= sql.replace(":where",where);
+    	 
+     }
+       
+       
+	List<Hostler>hostlers =jdbcTemplet.query(sql, new BeanPropertyRowMapper<Hostler>(Hostler.class));
+	return hostlers;
+			
 	
+	}
+	@Override
+	public List<CurrentPayers> getCurrentHostlers() {
+		
+		List<CurrentPayers> currentHostlers=jdbcTemplet.query(Sqls.SELECT_CURRENT_HOSTLERS,new Object[]{},new BeanPropertyRowMapper<CurrentPayers>(CurrentPayers.class));
+		return currentHostlers;
+	}
+	@Override
+	public List<Room> getRoomSearch(RoomSearch roomSearch) {
+		List<Room> availableBeds=jdbcTemplet.query(Sqls.SEARCH_ROOMS,new Object[]{roomSearch.getAvailableBeds()},new BeanPropertyRowMapper<Room>(Room.class));
+	  	return availableBeds;
+	  			
+	}
 	
 	
 	
