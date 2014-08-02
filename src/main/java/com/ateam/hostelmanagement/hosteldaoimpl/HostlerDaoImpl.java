@@ -1,5 +1,6 @@
 package com.ateam.hostelmanagement.hosteldaoimpl;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -382,7 +383,19 @@ public class HostlerDaoImpl implements HostlerDao {
 	  			
 	}
 	
+	@Override
+	public BigDecimal getSpent(String startDate, String endDate) {
+		return jdbcTemplet.queryForObject(Sqls.SELECT_SPENT,new Object[]{startDate,endDate},BigDecimal.class);
+	}
+	@Override
+	public BigDecimal getReceived(String startDate, String endDate) {
+		return jdbcTemplet.queryForObject(Sqls.SELECT_RECIEVED,new Object[]{startDate,endDate},BigDecimal.class);
+	}
 	
+	
+	
+	
+
 	
 
 }

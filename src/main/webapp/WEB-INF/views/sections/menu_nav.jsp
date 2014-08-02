@@ -134,6 +134,9 @@
 				<li id="expense-all">
 					<a href="${pageContext.servletContext.contextPath}/web/expense/all">All Expensess</a>
 				</li>
+				<li id="expense-amount">
+					<a href="${pageContext.servletContext.contextPath}/web/hostel/expense/amount1">Expensed amount</a>
+				</li>
 				
 					
 			</ul>

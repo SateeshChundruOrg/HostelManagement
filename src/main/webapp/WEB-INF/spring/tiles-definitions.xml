@@ -139,6 +139,16 @@
 		<put-attribute name="title-content" value="All expenses" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/Expense.jsp" />
 	</definition>
+	<definition name="expenseSearch" extends="template-main">
+		<put-attribute name="header-title-content" value="search expense" />
+		<put-attribute name="title-content" value="search expense" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/expenseSearch.jsp" />
+	</definition>
+	<definition name="percentage" extends="template-main">
+		<put-attribute name="header-title-content" value="gain loss" />
+		<put-attribute name="title-content" value="gain loss" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/percentage.jsp" />
+	</definition>
 	<definition name="createPayment" extends="template-main">
 		<put-attribute name="header-title-content" value="create payment" />
 		<put-attribute name="title-content" value="create payment" />

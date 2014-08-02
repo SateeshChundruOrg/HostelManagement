@@ -1,6 +1,8 @@
 package com.ateam.hostelmanagement.hostlerserviceimpl;
 
+import java.math.BigDecimal;
 import java.util.List;
+
 
 
 
@@ -207,5 +209,17 @@ public class HostlerServiceImpl implements HostlerService{
 		// TODO Auto-generated method stub
 		return hostlerDao.getRoomSearch(roomSearch);
 	}
+
+	@Override
+	public BigDecimal getSpent(String startDate, String endDate) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getSpent(startDate, endDate);
+	}
+	@Override
+	public BigDecimal getReceived(String startDate, String endDate) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getReceived(startDate, endDate);
+	}
+
 
 }

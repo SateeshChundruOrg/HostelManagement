@@ -1,6 +1,8 @@
 package com.ateam.hostelmanagement.hostelservice;
 
+import java.math.BigDecimal;
 import java.util.List;
+
 
 
 
@@ -66,5 +68,8 @@ public interface HostlerService {
     
     public void savePayment(Payments payments);
     public List<Payments> getPaymentDetails();
+    
+    public BigDecimal getSpent(String startDate,String endDate);
+    public BigDecimal getReceived(String startDate,String endDate);
 
 }

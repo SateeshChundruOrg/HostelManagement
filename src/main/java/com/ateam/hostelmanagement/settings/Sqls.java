@@ -50,6 +50,8 @@ public interface Sqls {
     
     public static String SELECT_CURRENT_HOSTLERS="select * from RoomHostlerMapping rhm join hostler h where Day(rhm.dateOfJoining)=day(curdate()) and rhm.hostlerId=h.hostlerId";
 
+    public static String SELECT_SPENT="SELECT sum(amount) as Spent FROM expense  WHERE date BETWEEN ? AND ? AND deleted=0 ";
+    public static String SELECT_RECIEVED="SELECT sum(p.paidAmount) from Payments p JOIN RoomHostlerMapping rhm ON rhm.hostlerId=p.hostlerId WHERE rhm.dateOfJoining BETWEEN ? AND ? AND rhm.deleted=0 AND p.deleted=0 ";
 
 
 }
