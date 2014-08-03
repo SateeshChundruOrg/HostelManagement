@@ -5,6 +5,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<script>
+$(document).ready(function(){
+	 var url='${pageContext.servletContext.contextPath}/web/hostler/all';
+	$('#page').xPagination({
+		page : '${page}',
+		total :'${total}',
+		url : url,
+		});
+	
+});
+</script>
+
+<div id="page">
 <table class="grid" cellpadding="8" cellspacing="0">
 <tr>
 <th>
@@ -114,5 +127,6 @@ ${hostler.address}
 </c:forEach>
 
 </table>
+</div>
 
 
