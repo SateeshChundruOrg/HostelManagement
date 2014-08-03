@@ -68,6 +68,7 @@ public interface HostlerService {
     
     public void savePayment(Payments payments);
     public List<Payments> getPaymentDetails();
+    public List<Payments> getPaymentHistory(long hostlerId);
     
     public BigDecimal getSpent(String startDate,String endDate);
     public BigDecimal getReceived(String startDate,String endDate);

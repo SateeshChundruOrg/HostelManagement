@@ -261,6 +261,20 @@ model.addAttribute("hostlerId",hostlerId);
 
 }
  
+@RequestMapping(value = "/hostler/payment/history", method = RequestMethod.GET)
+public String getHostlerPaymentHistory(Model model) {
+	
+	model.addAttribute("hostlers",hostlerService.getallhostlers());
+       return "hostlerPayment";
+}
+@RequestMapping(value = "/hostler/payment/history", method = RequestMethod.POST)
+public String getHostlerPaymentHistoryComplete(Model model,@RequestParam(value="hostlerId") Long hostlerId) {
+ 
+      model.addAttribute("payments",hostlerService.getPaymentHistory(hostlerId));
+       return "paymentHistory";
+
+}
+
  }
  
 

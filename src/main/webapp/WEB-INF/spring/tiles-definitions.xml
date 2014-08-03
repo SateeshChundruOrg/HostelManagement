@@ -88,6 +88,16 @@
 		<put-attribute name="title-content" value="All Payments" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/Payments.jsp" />
 	</definition>
+	<definition name="hostlerPayment" extends="template-main">
+		<put-attribute name="header-title-content" value=" payment hostler " />
+		<put-attribute name="title-content" value="payment hostler" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/hostlerPayment.jsp" />
+	</definition>
+<definition name="paymentHistory" extends="template-main">
+		<put-attribute name="header-title-content" value=" payment history " />
+		<put-attribute name="title-content" value="payment history" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/paymentHistory.jsp" />
+	</definition>
 	
 	<definition name="createRoom" extends="template-main">
 		<put-attribute name="header-title-content" value="create Room" />

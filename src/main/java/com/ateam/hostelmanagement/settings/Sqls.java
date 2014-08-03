@@ -50,8 +50,8 @@ public interface Sqls {
     
     public static String SELECT_CURRENT_HOSTLERS="select * from RoomHostlerMapping rhm join hostler h where Day(rhm.dateOfJoining)=day(curdate()) and rhm.hostlerId=h.hostlerId";
 
-    public static String SELECT_SPENT="SELECT sum(amount) as Spent FROM expense  WHERE date BETWEEN ? AND ? AND deleted=0 ";
-    public static String SELECT_RECIEVED="SELECT sum(p.paidAmount) from Payments p JOIN RoomHostlerMapping rhm ON rhm.hostlerId=p.hostlerId WHERE rhm.dateOfJoining BETWEEN ? AND ? AND rhm.deleted=0 AND p.deleted=0 ";
-
+    public static String SELECT_SPENT="SELECT ifnull(sum(amount),0) as Spent FROM expense  WHERE date BETWEEN ? AND ? AND deleted=0 ";
+    public static String SELECT_RECIEVED="SELECT ifnull(sum(p.paidAmount),0) from Payments p  WHERE p.paidDate BETWEEN ? AND ?  AND p.deleted=0 ";
+    public static String SELECT_PAYMENT_HISTORY="select p.*,h.name as hostlerName from Payments p JOIN hostler h ON p.hostlerId=h.hostlerId where p.hostlerId=? and p.deleted=0";
 
 }

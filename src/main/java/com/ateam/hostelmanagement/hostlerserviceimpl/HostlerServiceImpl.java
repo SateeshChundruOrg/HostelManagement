@@ -220,6 +220,11 @@ public class HostlerServiceImpl implements HostlerService{
 		// TODO Auto-generated method stub
 		return hostlerDao.getReceived(startDate, endDate);
 	}
+	@Override
+	public List<Payments> getPaymentHistory(long hostlerId) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getPaymentHistory(hostlerId);
+	}
 
 
 }

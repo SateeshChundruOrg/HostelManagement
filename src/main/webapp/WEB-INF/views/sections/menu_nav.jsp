@@ -101,6 +101,9 @@
 				<li id="hostler-search">
 					<a href="${pageContext.servletContext.contextPath}/web/hostler/search">Search</a>
 				</li>
+				<li id="hostler-history">
+					<a href="${pageContext.servletContext.contextPath}/web/hostler/payment/history">Payment History</a>
+				</li>
 				
 					
 			</ul>

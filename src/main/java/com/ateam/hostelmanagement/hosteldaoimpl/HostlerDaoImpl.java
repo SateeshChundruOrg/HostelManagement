@@ -391,6 +391,12 @@ public class HostlerDaoImpl implements HostlerDao {
 	public BigDecimal getReceived(String startDate, String endDate) {
 		return jdbcTemplet.queryForObject(Sqls.SELECT_RECIEVED,new Object[]{startDate,endDate},BigDecimal.class);
 	}
+	@Override
+	public List<Payments> getPaymentHistory(long hostlerId) {
+		
+		List<Payments> paymentHistory=jdbcTemplet.query(Sqls.SELECT_PAYMENT_HISTORY,new Object[]{hostlerId},new BeanPropertyRowMapper<Payments>(Payments.class));
+		return paymentHistory;
+	}
 	
 	
 	
