@@ -1,0 +1,15 @@
+.pageHeader {
+	background-image: url(img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+	padding-right: 20px;
+}
+.pageHeaderSortUp {
+	background-image: url(img/asc.gif);
+	padding-right: 20px;
+}
+.pageHeaderSortDown {
+	background-image: url(img/desc.gif);
+	padding-right: 20px;
+}
