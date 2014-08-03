@@ -1,6 +1,12 @@
 package com.ateam.hostelmanagement.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Hostler {
+	@Id @GeneratedValue
 	private long hostlerId;
 	private  String name;
 	private  String firstName;

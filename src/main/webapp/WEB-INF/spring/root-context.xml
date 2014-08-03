@@ -53,26 +53,80 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+
+		<property name="url"
+			value="jdbc:mysql://${dp_ip}:${db_port}/${db}?autoReconnect=true" />
+		<property name="username" value="${db_username}" />
+		<property name="password" value="${db_password}" />
+
+		<!-- The initial number of connections that are created when the pool is 
+			started. -->
+		<property name="initialSize" value="2" />
+
+		<!-- The maximum number of active connections that can be allocated from 
+			this pool at the same time, or negative for no limit. -->
+		<property name="maxActive" value="-1" />
+
+		<!-- The minimum number of connections that can remain idle in the pool, 
+			without extra ones being created when the evictor runs, or 0 to create none. -->
+		<property name="minIdle" value="2" />
+		<!-- The maximum number of connections that can remain idle in the pool, 
+			without extra ones being destroyed, or negative for no limit. -->
+		<property name="maxIdle" value="2" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testWhileIdle" value="true" />
+		<property name="validationQuery" value="SELECT 1" />
+		<!-- The minimum amount of time an object may sit idle in the pool before 
+			it is eligible for eviction by the idle object evictor (if any). 60000 checks 
+			every 10 minutes. -->
+		<property name="minEvictableIdleTimeMillis" value="600000" />
+	</bean>
 	
-	    <bean id="authenticationSuccessHandler" class="com.ateam.hostelmanagement.handler.CustomAuthenticationSuccessHandler" />
 	
-	<security:http auto-config="true" use-expressions="true" access-denied-page="/accessDenied" authentication-manager-ref="operationAuthenticationManager">
-		<security:intercept-url pattern="/" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" />
-		<security:intercept-url pattern="/web*" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" />
-		<security:intercept-url pattern="/web/**" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" />
-		<security:form-login login-page="/login" default-target-url="/web" authentication-failure-url="/loginfailed" authentication-success-handler-ref="authenticationSuccessHandler"/>
-		<security:remember-me/>
-		<security:logout logout-url="/logout" invalidate-session="true" logout-success-url="/login" />
-	</security:http>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>hibernate.cfg.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.HSQLDialect
+            </value>
+        </property>
+        
+    </bean>
+
+     <bean id="transactionManager" 
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory" />
+        	
 	
-	<security:authentication-manager id="operationAuthenticationManager">
-		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="SELECT `oppUserName` AS `username`, `oppPassword` AS `password`, `enabled` FROM `OppUsers` WHERE `oppUserName` = ?" 
-           		authorities-by-username-query="SELECT ? AS `username`, 'ROLE_AGENT' AS `authority`" 
-           />
-		</security:authentication-provider>
-	</security:authentication-manager>
+	
+	
+<!-- 	    <bean id="authenticationSuccessHandler" class="com.ateam.hostelmanagement.handler.CustomAuthenticationSuccessHandler" /> -->
+	
+<!-- 	<security:http auto-config="true" use-expressions="true" access-denied-page="/accessDenied" authentication-manager-ref="operationAuthenticationManager"> -->
+<!-- 		<security:intercept-url pattern="/" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" /> -->
+<!-- 		<security:intercept-url pattern="/web*" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" /> -->
+<!-- 		<security:intercept-url pattern="/web/**" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')" /> -->
+<!-- 		<security:form-login login-page="/login" default-target-url="/web" authentication-failure-url="/loginfailed" authentication-success-handler-ref="authenticationSuccessHandler"/> -->
+<!-- 		<security:remember-me/> -->
+<!-- 		<security:logout logout-url="/logout" invalidate-session="true" logout-success-url="/login" /> -->
+<!-- 	</security:http> -->
+	
+<!-- 	<security:authentication-manager id="operationAuthenticationManager"> -->
+<!-- 		<security:authentication-provider> -->
+<!-- 			<security:jdbc-user-service data-source-ref="dataSource" -->
+<!-- 				users-by-username-query="SELECT `oppUserName` AS `username`, `oppPassword` AS `password`, `enabled` FROM `OppUsers` WHERE `oppUserName` = ?"  -->
+<!--            		authorities-by-username-query="SELECT ? AS `username`, 'ROLE_AGENT' AS `authority`"  -->
+<!--            /> -->
+<!-- 		</security:authentication-provider> -->
+<!-- 	</security:authentication-manager> -->
     
 	
 	

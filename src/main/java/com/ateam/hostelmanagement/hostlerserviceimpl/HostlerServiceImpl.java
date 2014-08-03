@@ -1,6 +1,9 @@
 package com.ateam.hostelmanagement.hostlerserviceimpl;
 
+import java.math.BigDecimal;
 import java.util.List;
+
+
 
 
 
@@ -8,6 +11,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
@@ -22,6 +26,8 @@ public class HostlerServiceImpl implements HostlerService{
 
 	@Autowired
 	HostlerDao hostlerDao;
+     
+	@Transactional
 	@Override
 	public void saveHostler(Hostler hostler) {
 		System.out.println(hostler.getName());
@@ -185,6 +191,16 @@ public class HostlerServiceImpl implements HostlerService{
 	public List<Payments> getPaymentDetails() {
 		// TODO Auto-generated method stub
 		return hostlerDao.getPaymentDetails();
+	}
+	@Override
+	public BigDecimal getSpent(String startDate, String endDate) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getSpent(startDate, endDate);
+	}
+	@Override
+	public BigDecimal getReceived(String startDate, String endDate) {
+		// TODO Auto-generated method stub
+		return hostlerDao.getReceived(startDate, endDate);
 	}
 
 }

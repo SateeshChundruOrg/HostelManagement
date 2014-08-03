@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="db">HostelManagement</entry>
+	<entry key="db">HostelManagementHiber</entry>
 	<entry key="dp_ip">localhost</entry>
 	<entry key="db_port">3306</entry>
 	<entry key="db_username">root</entry>

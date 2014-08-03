@@ -44,4 +44,6 @@ public interface Sqls {
 
     public static String INSERT_PAYMENT="INSERT INTO Payments (paymentId,actualAmount,paidAmount,actualDate,paidDate,hostlerId) VALUES  (?,?,?,?,?,?)" ;
     public static String SELECT_PAYMENTS="SELECT h.`name` AS hostlerName,p.* FROM hostler h JOIN Payments p ON h.`hostlerId`=p.`hostlerId` WHERE p.deleted=0";
+    public static String SELECT_SPENT="SELECT sum(amount) as Spent FROM expense  WHERE date BETWEEN ? AND ? AND deleted=0 ";
+    public static String SELECT_RECIEVED="SELECT sum(p.paidAmount) from Payments p JOIN RoomHostlerMapping rhm ON rhm.hostlerId=p.hostlerId WHERE rhm.dateOfJoining BETWEEN ? AND ? AND rhm.deleted=0 AND p.deleted=0 ";
 }

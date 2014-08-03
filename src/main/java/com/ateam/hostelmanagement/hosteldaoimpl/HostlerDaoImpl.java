@@ -1,11 +1,15 @@
 package com.ateam.hostelmanagement.hosteldaoimpl;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,37 +31,45 @@ import com.mysql.jdbc.Statement;
 @Repository
 public class HostlerDaoImpl implements HostlerDao {
 
-	
+	Configuration cofig;
 	@Autowired
 	private JdbcTemplate jdbcTemplet;
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	@Override
 	public void saveHostler(final Hostler hostler) {
 		
+		Session session=sessionFactory.getCurrentSession();
+		session.save(hostler);
 		
-		KeyHolder keyholder=new GeneratedKeyHolder();
 		
-		int update=jdbcTemplet.update(new PreparedStatementCreator() {
-			
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con)
-					throws SQLException {
-			
-				
-				PreparedStatement ps = con.prepareStatement(Sqls.INSERT_HOSTLER, Statement.RETURN_GENERATED_KEYS);
-				ps.setString(1, hostler.getName());
-				ps.setString(2, hostler.getFirstName());
-				ps.setString(3, hostler.getLastName());
-				ps.setString(4, hostler.getAge());
-				ps.setString(5, hostler.getSex());
-				ps.setString(6, hostler.getQualification());
-				ps.setString(7, hostler.getDateOfJoining());
-				ps.setString(8, hostler.getMobileNumber());
-				ps.setString(9, hostler.getAddress());
-				
-				return ps;
-			}
-		},keyholder);
-		long key=keyholder.getKey().longValue();
+		
+//		KeyHolder keyholder=new GeneratedKeyHolder();
+//		
+//		int update=jdbcTemplet.update(new PreparedStatementCreator() {
+//			
+//			@Override
+//			public PreparedStatement createPreparedStatement(Connection con)
+//					throws SQLException {
+//			
+//				
+//				PreparedStatement ps = con.prepareStatement(Sqls.INSERT_HOSTLER, Statement.RETURN_GENERATED_KEYS);
+//				ps.setString(1, hostler.getName());
+//				ps.setString(2, hostler.getFirstName());
+//				ps.setString(3, hostler.getLastName());
+//				ps.setString(4, hostler.getAge());
+//				ps.setString(5, hostler.getSex());
+//				ps.setString(6, hostler.getQualification());
+//				ps.setString(7, hostler.getDateOfJoining());
+//				ps.setString(8, hostler.getMobileNumber());
+//				ps.setString(9, hostler.getAddress());
+//				
+//				return ps;
+//			}
+//		},keyholder);
+		long key=hostler.getHostlerId();
 		
 	}
 	public List<Hostler> getallhostlers() {
@@ -316,6 +328,14 @@ public class HostlerDaoImpl implements HostlerDao {
 	
 		List<Payments> payments=jdbcTemplet.query(Sqls.SELECT_PAYMENTS,new Object[]{},new BeanPropertyRowMapper<Payments>(Payments.class));
 		return payments;
+	}
+	@Override
+	public BigDecimal getSpent(String startDate, String endDate) {
+		return jdbcTemplet.queryForObject(Sqls.SELECT_SPENT,new Object[]{startDate,endDate},BigDecimal.class);
+	}
+	@Override
+	public BigDecimal getReceived(String startDate, String endDate) {
+		return jdbcTemplet.queryForObject(Sqls.SELECT_RECIEVED,new Object[]{startDate,endDate},BigDecimal.class);
 	}
 	
 	

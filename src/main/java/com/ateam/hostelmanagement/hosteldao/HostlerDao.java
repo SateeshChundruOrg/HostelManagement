@@ -1,13 +1,15 @@
 package com.ateam.hostelmanagement.hosteldao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
 import com.ateam.hostelmanagement.bean.Expense;
 import com.ateam.hostelmanagement.bean.Hostel;
 import com.ateam.hostelmanagement.bean.Hostler;
+import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
 import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
+
 
 
 
@@ -38,6 +40,9 @@ public interface HostlerDao {
     public void deleteExpense(long expenseId);
     public void editExpense(Expense expense);
     public Expense getExpense(long expenseId);
+    
+    public BigDecimal getSpent(String startDate,String endDate);
+    public BigDecimal getReceived(String startDate,String endDate);
     
     public void saveAssign(HostlerRoomMapping assign);
     public List<HostlerRoomMapping> getallAssigns();

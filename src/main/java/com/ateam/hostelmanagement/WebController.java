@@ -1,9 +1,12 @@
 package com.ateam.hostelmanagement;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+
 
 
 
@@ -199,10 +202,27 @@ model.addAttribute("hostlerId",hostlerId);
 	       return "Payments";
 
 	}
+ @RequestMapping(value = "/hostel/expense/amount1", method = RequestMethod.GET)
+	public String getExpenseAmount(Model model) {
+		
+
+	       return "expenseSearch";
+}
+ @RequestMapping(value = "/hostel/expense/amount", method = RequestMethod.GET)
+	public String expenseAmount(Model model,@RequestParam(value="startDate" ,required=false,defaultValue="1970-01-01")String startDate,@RequestParam(value="endDate" ,required=false,defaultValue="2099-01-01")String endDate) {
+	 BigDecimal amountSpent=hostlerService.getSpent(startDate, endDate);
+	 BigDecimal amountReceived=hostlerService.getReceived(startDate, endDate);
+		model.addAttribute("amountSpent",amountSpent.toString());
+		model.addAttribute("amountReceived",amountReceived.toString());
+		model.addAttribute("availableAmount",amountReceived.subtract(amountSpent).toString());
+		
+		
+    
+	       return "percentage";
  
  }
  
-
+}
 	
 
 
