@@ -3,7 +3,8 @@ package com.ateam.hostelmanagement.settings;
 public interface Sqls {
 	
 	public static String INSERT_HOSTLER="insert into hostler (name, firstName, lastName, age, sex, qualification, dateOfJoining, mobileNumber, address)	values	(?, ?, ?,?, ?, ?,?, ?, ?)";
-	public static String SELECT_HOSTLERS="select * from hostler WHERE deleted=0";
+	public static String SELECT_HOSTLERS="select * from hostler WHERE deleted=0 LIMIT ?,?";
+	public static String SELECT_HOSTLERS_COUNT="select count(*) from hostler WHERE deleted=0";
 	public static String DELETE_HOSTLER="update hostler SET deleted=1 WHERE hostlerId=?";
 	public static String UPDATE_HOSTLER="update hostler SET name=?,firstName=?,lastName=?,age=?,sex=?,qualification=?,dateOfJoining=?,mobileNumber=?,address=?  WHERE hostlerId=?";
 	public static String SELECT_HOSTLER="select * from hostler WHERE hostlerId=?";

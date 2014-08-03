@@ -63,9 +63,11 @@ public class HostlerDaoImpl implements HostlerDao {
 		long key=keyholder.getKey().longValue();
 		
 	}
-	public List<Hostler> getallhostlers() {
+	public List<Hostler> getallhostlers(int offset, int pageSize) {
 		
-		List<Hostler> hostlers=jdbcTemplet.query(Sqls.SELECT_HOSTLERS,new Object[]{},new BeanPropertyRowMapper<Hostler>(Hostler.class));
+		
+		
+		List<Hostler> hostlers=jdbcTemplet.query(Sqls.SELECT_HOSTLERS,new Object[]{offset,pageSize},new BeanPropertyRowMapper<Hostler>(Hostler.class));
 		return hostlers;
 	}
 	@Override
@@ -396,6 +398,11 @@ public class HostlerDaoImpl implements HostlerDao {
 		
 		List<Payments> paymentHistory=jdbcTemplet.query(Sqls.SELECT_PAYMENT_HISTORY,new Object[]{hostlerId},new BeanPropertyRowMapper<Payments>(Payments.class));
 		return paymentHistory;
+	}
+	@Override
+	public long getHostlersCount() {
+
+		return jdbcTemplet.queryForLong(Sqls.SELECT_HOSTLERS_COUNT,new Object[]{});
 	}
 	
 	

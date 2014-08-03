@@ -18,10 +18,11 @@ import com.ateam.hostelmanagement.bean.RoomSearch;
 public interface HostlerDao {
 	
 	public void saveHostler(Hostler hostler);
-	public List<Hostler>getallhostlers();
+	public List<Hostler>getallhostlers(int offset, int pageSize);
 	public void deleteHostler(long hostlerId);
 	public void editHostler(Hostler hostler);
 	public Hostler getHostler(long hostlerId);
+	public long getHostlersCount();
 
 	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch);
     public List<CurrentPayers> getCurrentHostlers();

@@ -11,6 +11,7 @@ import java.util.List;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +26,14 @@ import com.ateam.hostelmanagement.bean.Room;
 import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hosteldao.HostlerDao;
 import com.ateam.hostelmanagement.hostelservice.HostlerService;
+import com.ateam.hostelmanagement.settings.Constants;
 @Service
 public class HostlerServiceImpl implements HostlerService{
 
 	@Autowired
 	HostlerDao hostlerDao;
+	@Autowired
+	Constants constants;
 	@Override
 	public void saveHostler(Hostler hostler) {
 		System.out.println(hostler.getName());
@@ -37,10 +41,10 @@ public class HostlerServiceImpl implements HostlerService{
 		
 	}
 	@Override
-	public List<Hostler> getallhostlers() {
+	public List<Hostler> getallhostlers(int page) {
+		int offSet=(page-1)*constants.pageSize;
 		
-		// TODO Auto-generated method stub
-		return hostlerDao.getallhostlers();
+		return hostlerDao.getallhostlers(offSet,constants.pageSize);
 	}
 	@Override
 	public void deleteHostler(long hostlerId) {
@@ -224,6 +228,10 @@ public class HostlerServiceImpl implements HostlerService{
 	public List<Payments> getPaymentHistory(long hostlerId) {
 		// TODO Auto-generated method stub
 		return hostlerDao.getPaymentHistory(hostlerId);
+	}
+	@Override
+	public long getHostlersCount() {
+		return hostlerDao.getHostlersCount();
 	}
 
 

@@ -1,10 +1,13 @@
 package com.ateam.hostelmanagement;
 
+import java.io.Reader;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+
 
 
 
@@ -37,6 +40,7 @@ import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
 import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hostelservice.HostlerService;
+import com.ateam.hostelmanagement.settings.Constants;
 
 
 @Controller
@@ -45,6 +49,8 @@ import com.ateam.hostelmanagement.hostelservice.HostlerService;
 public class WebController {
 	@Autowired
 	HostlerService hostlerService;
+	@Autowired
+	Constants constants;
 	
 	
 private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -79,16 +85,29 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		return "editHostler";
 	}
 	@RequestMapping(value = "/hostler/all", method = RequestMethod.GET)
-	public String allHostlers(Model model) {
+	public String allHostlers(Model model,@RequestParam(value="page",required=false,defaultValue="1")String pageStr) {
+		int page=Integer.parseInt(pageStr);
 		//hostlerService.editHostler(hostler);
 		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
-		List<Hostler> hostlers=hostlerService.getallhostlers();
+	  long count =hostlerService.getHostlersCount();
+	  long totalPageSize=Math.round(Math.floor(count/constants.pageSize));
+	
+	  if(count%constants.pageSize>0 ||count==0){
+		totalPageSize++;  
+	  }
+		
+		List<Hostler> hostlers=hostlerService.getallhostlers(page);
 	  for (Hostler hostler : hostlers) {
 		if(hostlerRoomMappings.contains(hostler)){
 			hostler.setRoomAssigned(true);
 		}
 	}
 	
+	   model.addAttribute("page",page);
+	   model.addAttribute("total",totalPageSize);
+	   model.addAttribute("size",constants.pageSize);
+	   
+	   
 		model.addAttribute("hostlers",hostlers);
 
 	       return "home";

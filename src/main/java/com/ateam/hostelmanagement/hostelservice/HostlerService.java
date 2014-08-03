@@ -11,6 +11,7 @@ import java.util.List;
 
 
 
+
 import com.ateam.hostelmanagement.bean.CurrentPayers;
 import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
 import com.ateam.hostelmanagement.bean.Expense;
@@ -24,10 +25,11 @@ import com.ateam.hostelmanagement.bean.RoomSearch;
 public interface HostlerService {
 	
 	public void saveHostler(Hostler hostler);
-	public List<Hostler>getallhostlers();
+	public List<Hostler>getallhostlers(int page);
 	public void deleteHostler(long hostlerId);
     public void editHostler(Hostler hostler);
 	public Hostler getHostler(long hostlerId);
+	public long getHostlersCount();
 	
 
 	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch);
