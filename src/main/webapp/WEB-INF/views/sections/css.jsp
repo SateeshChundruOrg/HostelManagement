@@ -7,6 +7,8 @@
 <link rel="stylesheet" media="screen" href="${pageContext.servletContext.contextPath}/resources/css/navbar.css" /> 
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/ateam.css" />
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/jqpagination.css" />
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/xpagination.css" />
 
 <style type="text/css">
 	.error {
