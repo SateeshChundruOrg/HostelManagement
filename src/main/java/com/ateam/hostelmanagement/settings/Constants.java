@@ -4,6 +4,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Constants {
-	public int pageSize=10;
+	public int pageSize=5;
 
 }

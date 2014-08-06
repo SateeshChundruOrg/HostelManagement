@@ -47,6 +47,10 @@ public class Room {
 	public void setNoOfBeds(String noOfBeds) {
 		this.noOfBeds = noOfBeds;
 	}
+	public void setRoomAssigned(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

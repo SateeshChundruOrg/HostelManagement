@@ -29,18 +29,19 @@ public interface HostlerDao {
 	
 	
     public void saveHostel(Hostel hostel);
-    public List<Hostel>getallhostels();
+    public List<Hostel>getallhostels(int offSet, int pageSize);
     public void deleteHostel(long hostelId);
     public void editHostel(Hostel hostel);
     public Hostel getHostel(long hostelId);
+    public long getHostelsCount();
     
     public void saveRoom(Room room);
-    public List<Room>getallrooms();
     public void deleteRoom(long roomId);
     public void editRoom(Room room);
     public Room getRoom(long roomId);
     public List<Room> getRoomSearch(RoomSearch roomsearch);
-	//Hostler getHostler(Long hostlerId);
+    public long getRoomsCount();
+    public List<Room>getallrooms(int offset, int pageSize);
 	
     public void saveExpense(Expense expense);
     public List<Expense> getallExpenses();
@@ -68,4 +69,5 @@ public interface HostlerDao {
     
     public BigDecimal getSpent(String startDate,String endDate);
     public BigDecimal getReceived(String startDate,String endDate);
+	
 }

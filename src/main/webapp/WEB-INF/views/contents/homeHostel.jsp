@@ -2,9 +2,23 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page trimDirectiveWhitespaces="true" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<table class="grid" cellpadding="8" cellspacing="0">
+<script>
+$(document).ready(function(){
+	 var url='${pageContext.servletContext.contextPath}/web/hostel/all';
+	$('#page').xPagination({
+		page : '${page}',
+		total :'${total}',
+		url : url,
+		});
+	
+});
+</script>
+
+<div id="page">
+<table class="grid xPagination" cellpadding="8" cellspacing="0">
 <tr>
 <th>
 HostelName
@@ -43,3 +57,4 @@ ${hostel.hostelAddress}
 
 </table>
 
+</div>

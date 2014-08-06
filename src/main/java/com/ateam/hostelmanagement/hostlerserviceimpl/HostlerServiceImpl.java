@@ -69,10 +69,16 @@ public class HostlerServiceImpl implements HostlerService{
 		hostlerDao.saveHostel(hostel);
 	}
 	@Override
-	public List<Hostel> getallhostels() {
-		// TODO Auto-generated method stub
-		return hostlerDao.getallhostels();
+	public List<Hostel> getallhostels(int page) {
+		int offSet=(page-1)*constants.pageSize;
+		
+		return hostlerDao.getallhostels(offSet,constants.pageSize);
 	}
+//	@Override
+//	public List<Hostel> getallhostels() {
+//		// TODO Auto-generated method stub
+//		return hostlerDao.getallhostels(offSet, pageSize)();
+//	}
 	@Override
 	public void deleteHostel(long hostelId) {
 		// TODO Auto-generated method stub
@@ -96,11 +102,11 @@ public class HostlerServiceImpl implements HostlerService{
 		hostlerDao.saveRoom(room);
 		
 	}
-	@Override
-	public List<Room> getallrooms() {
-		// TODO Auto-generated method stub
-		return hostlerDao.getallrooms();
-	}
+	//@Override
+//	public List<Room> getallrooms() {
+//		// TODO Auto-generated method stub
+//		return hostlerDao.getallrooms();
+//	}
 	@Override
 	public void deleteRoom(long roomId) {
 		// TODO Auto-generated method stub
@@ -232,6 +238,24 @@ public class HostlerServiceImpl implements HostlerService{
 	@Override
 	public long getHostlersCount() {
 		return hostlerDao.getHostlersCount();
+	}
+	
+	@Override
+	public long getHostelsCount() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getHostelsCount();
+	}
+	@Override
+	public long getRoomsCount() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getRoomsCount();
+	}
+	@Override
+	public List<Room> getallrooms(int page) {
+		// TODO Auto-generated method stub
+int offSet=(page-1)*constants.pageSize;
+		
+		return hostlerDao.getallrooms(offSet,constants.pageSize);
 	}
 
 

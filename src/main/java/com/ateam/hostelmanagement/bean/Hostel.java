@@ -25,6 +25,10 @@ public class Hostel {
 	public void setHostelAddress(String hostelAddress) {
 		this.hostelAddress = hostelAddress;
 	}
+	public void setRoomAssigned(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

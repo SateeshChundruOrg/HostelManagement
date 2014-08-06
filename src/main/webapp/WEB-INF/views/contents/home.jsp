@@ -18,7 +18,7 @@ $(document).ready(function(){
 </script>
 
 <div id="page">
-<table class="grid" cellpadding="8" cellspacing="0">
+<table class="grid xPagination"  cellpadding="8" cellspacing="0">
 <tr>
 <th>
 <b>

@@ -51,6 +51,7 @@ public class WebController {
 	HostlerService hostlerService;
 	@Autowired
 	Constants constants;
+	private int page;
 	
 	
 private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -78,8 +79,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 }
 	@RequestMapping(value="/hostler/edit/{hostlerId}",method=RequestMethod.GET)
 	public String editHostlerLand(Model model ,@PathVariable String hostlerId){
-		//model.addAttribute("hostel", new Hostel());
-		//Hostel hostel=hostlerService.getHostel(Long.parseLong(hostelId));
+		
 		Hostler hostler=hostlerService.getHostler(Long.parseLong(hostlerId));
 		model.addAttribute("hostler",hostler);
 		return "editHostler";
@@ -87,7 +87,6 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping(value = "/hostler/all", method = RequestMethod.GET)
 	public String allHostlers(Model model,@RequestParam(value="page",required=false,defaultValue="1")String pageStr) {
 		int page=Integer.parseInt(pageStr);
-		//hostlerService.editHostler(hostler);
 		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
 	  long count =hostlerService.getHostlersCount();
 	  long totalPageSize=Math.round(Math.floor(count/constants.pageSize));
@@ -148,9 +147,29 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		return "editHostel";
 }
 	@RequestMapping(value = "/hostel/all", method = RequestMethod.GET)
-	public String allHostels(Model model) {
+	public String allHostels(Model model,@RequestParam(value="page",required=false,defaultValue="1")String pageStr) {
 		//hostlerService.editHostler(hostler);
-		model.addAttribute("host",hostlerService.getallhostels());
+		int page=Integer.parseInt(pageStr);
+		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
+		long count =hostlerService.getHostelsCount();
+		  long totalPageSize=Math.round(Math.floor(count/constants.pageSize));
+		
+		  if(count%constants.pageSize>0 ||count==0){
+			totalPageSize++;  
+		  }
+			
+			List<Hostel> hostels=hostlerService.getallhostels(page);
+		  for (Hostel hostel : hostels) {
+			  if(hostlerRoomMappings.contains(hostel)){
+				hostel.setRoomAssigned(true);
+			}
+		}
+		
+		   model.addAttribute("page",page);
+		   model.addAttribute("total",totalPageSize);
+		   model.addAttribute("size",constants.pageSize);
+		   
+		model.addAttribute("host",hostels);
 
 	       return "homeHostel";
 
@@ -158,21 +177,44 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping(value="/hostel/room/create",method=RequestMethod.GET)
 	public String createRoomLand(Model model){
 		model.addAttribute("room",new Room());
-		model.addAttribute("hostels",hostlerService.getallhostels());
+		model.addAttribute("hostels",hostlerService.getallhostels(page));
 		return "createRoom";
 }
 	@RequestMapping(value="/hostel/room/edit/{roomId}",method=RequestMethod.GET)
 	public String editRoom(Model model ,@PathVariable String roomId){
 		//model.addAttribute("hostel", new Hostel());
-		model.addAttribute("hostels",hostlerService.getallhostels());
+		model.addAttribute("hostels",hostlerService.getallhostels(page));
 		Room room=hostlerService.getRoom(Long.parseLong(roomId));
 		model.addAttribute("room",room);
 		return "editRoom";
 }
 	@RequestMapping(value = "/hostel/room/all", method = RequestMethod.GET)
-	public String allRooms(Model model) {
-		//hostlerService.editHostler(hostler);
-		model.addAttribute("room",hostlerService.getallrooms());
+	public String allRooms(Model model,@RequestParam(value="page",required=false,defaultValue="1")String pageStr) {
+
+		int page=Integer.parseInt(pageStr);
+		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
+	  long count =hostlerService.getRoomsCount();
+	  long totalPageSize=Math.round(Math.floor(count/constants.pageSize));
+	
+	  if(count%constants.pageSize>0 ||count==0){
+		totalPageSize++;  
+	  }
+		
+		List<Room> rooms=hostlerService.getallrooms(page);
+	  for (Room room : rooms) {
+		if(hostlerRoomMappings.contains(room)){
+			room.setRoomAssigned(true);
+		}
+	}
+	
+	   model.addAttribute("page",page);
+	   model.addAttribute("total",totalPageSize);
+	   model.addAttribute("size",constants.pageSize);
+	   
+	   
+		
+		
+		model.addAttribute("room",hostlerService.getallrooms(page));
 
 	       return "homeRoom";
 

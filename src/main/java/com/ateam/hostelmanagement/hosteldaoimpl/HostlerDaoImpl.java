@@ -109,9 +109,10 @@ public class HostlerDaoImpl implements HostlerDao {
 		
 	}
 	@Override
-	public List<Hostel> getallhostels() {
+	public List<Hostel> getallhostels(int offset, int pageSize) {
 		
-		List<Hostel> hostels=jdbcTemplet.query(Sqls.SELECT_HOSTELS,new Object[]{},new BeanPropertyRowMapper<Hostel>(Hostel.class));
+		
+		List<Hostel> hostels=jdbcTemplet.query(Sqls.SELECT_HOSTELS,new Object[]{offset,pageSize},new BeanPropertyRowMapper<Hostel>(Hostel.class));
 		return hostels;
 	}
 	@Override
@@ -149,12 +150,12 @@ public class HostlerDaoImpl implements HostlerDao {
 		}, keyHolder);
 		
 	}
-	@Override
-	public List<Room> getallrooms() {
-		
-		List<Room> rooms=jdbcTemplet.query(Sqls.SELECT_ROOMS,new Object[]{},new BeanPropertyRowMapper<Room>(Room.class));
-		return rooms;
-	}
+//	@Override
+//	public List<Room> getallrooms() {
+//		
+//		List<Room> rooms=jdbcTemplet.query(Sqls.SELECT_ROOMS,new Object[]{},new BeanPropertyRowMapper<Room>(Room.class));
+//		return rooms;
+//	}
 	@Override
 	public void deleteRoom(long roomId) {
 		
@@ -404,6 +405,24 @@ public class HostlerDaoImpl implements HostlerDao {
 
 		return jdbcTemplet.queryForLong(Sqls.SELECT_HOSTLERS_COUNT,new Object[]{});
 	}
+	@Override
+	public long getHostelsCount() {
+		// TODO Auto-generated method stub
+		return jdbcTemplet.queryForLong(Sqls.SELECT_HOSTELS_COUNT,new Object[]{});
+	
+	}
+	@Override
+	public long getRoomsCount() {
+		// TODO Auto-generated method stub
+		return jdbcTemplet.queryForLong(Sqls.SELECT_ROOMS_COUNT,new Object[]{});
+	}
+	@Override
+	public List<Room> getallrooms(int offset, int pageSize) {
+		// TODO Auto-generated method stub
+		List<Room> rooms=jdbcTemplet.query(Sqls.SELECT_ROOMS,new Object[]{offset,pageSize},new BeanPropertyRowMapper<Room>(Room.class));
+		return rooms;
+	}
+	
 	
 	
 	

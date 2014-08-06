@@ -10,18 +10,18 @@ public interface Sqls {
 	public static String SELECT_HOSTLER="select * from hostler WHERE hostlerId=?";
     
 	public static String INSERT_HOSTEL="insert into hostel (hostelName, hostelAddress)values(?,?)";
-    public static String SELECT_HOSTELS="select * from hostel WHERE deleted=0";
+    public static String SELECT_HOSTELS="select * from hostel WHERE deleted=0 LIMIT ?,?";
     public static String DELETE_HOSTEL="update hostel SET deleted=1 WHERE hostelId=?";
+    public static String SELECT_HOSTELS_COUNT="select count(*) from hostel WHERE deleted=0";
     public static String UPDATE_HOSTEL="update hostel SET hostelName=?,hostelAddress=? WHERE hostelId=?";
     public static String SELECT_HOSTEL="select * from hostel WHERE hostelId=?";
 
     public static String INSERT_ROOM="insert into room (roomNumber, noOfBeds,hostelId)values(?, ?,?)";
-//    public static String SELECT_ROOMS="select * from room WHERE deleted=0";
-    public static String SELECT_ROOMS="select 	r.roomId, r.roomNumber, r.noOfBeds, r.hostelId,h.hostelName from room r join hostel h on(r.hostelId=h.hostelId) where r.deleted=0";
+    public static String SELECT_ROOMS="select 	r.roomId, r.roomNumber, r.noOfBeds, r.hostelId,h.hostelName from room r join hostel h on(r.hostelId=h.hostelId) where r.deleted=0 LIMIT ?,?";
     public static String DELETE_ROOM="update room SET deleted=1 WHERE roomId=?";
     public static String UPDATE_ROOM="update room SET roomNumber=?,noOfBeds=?,hostelId=? WHERE roomId=?";
     public static String SELECT_ROOM="select * from room WHERE roomId=?";
-    
+    public static String SELECT_ROOMS_COUNT="select count(*) from room WHERE deleted=0"; 
     public static String INSERT_EXPENSE="insert into expense (expense,amount,date) values (?,?,?)";
     public static String SELECT_EXPENSES="select * from expense WHERE deleted=0";
     public static String DELETE_EXPENSE="update expense SET deleted=1 WHERE expenseId=?";

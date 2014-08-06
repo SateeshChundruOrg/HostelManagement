@@ -4,9 +4,21 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<script>
+$(document).ready(function(){
+	 var url='${pageContext.servletContext.contextPath}/web/hostel/room/all';
+	$('#page').xPagination({
+		page : '${page}',
+		total :'${total}',
+		url : url,
+		});
+	
+});
+</script>
 
+<div id="page">
 
-<table class="grid" cellpadding="8" cellspacing="0">
+<table class="grid xPagination" cellpadding="8" cellspacing="0">
 <tr>
 <th>
 RoomNumber
@@ -50,4 +62,4 @@ ${room.hostelName}
 
 
 </table>
-
+</div>

@@ -8,8 +8,8 @@
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/hoverIntent.js"></script>
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/superfish.js"></script>
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/common.js"></script>
-
-
+<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery.jqpagination.min.js"></script>
+<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/xpagination.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$(".Date").each(function(index){
