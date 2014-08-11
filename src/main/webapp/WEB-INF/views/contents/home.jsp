@@ -15,8 +15,10 @@ $(document).ready(function(){
 		});
 	
 });
-</script>
 
+  
+
+</script>
 <div id="page">
 <table class="grid xPagination"  cellpadding="8" cellspacing="0">
 <tr>
@@ -96,7 +98,7 @@ ${hostler.address}
 </td>
 <td>
 
-<a href="${pageContext.servletContext.contextPath}/web/form/hostler/delete/${hostler.hostlerId}">Delete Hostler</a>
+<a href="javascript:if(confirm('Delete this form submission?')){window.location='${pageContext.servletContext.contextPath}/web/form/hostler/delete/${hostler.hostlerId}'}">Delete Hostler </a>
 
 </td>
 <td>

@@ -17,7 +17,12 @@
 	   	    	}
 	   	    });
 	    
-	    if(url.indexOf('${pageContext.servletContext.contextPath}/web/hostler') != -1
+			  if(url.indexOf('${pageContext.servletContext.contextPath}/web/hostler/current/payers') != -1
+	    		) {
+	    	$('#home').addClass('current');
+			$('#hostler-current-payers').addClass('current');
+	    }
+			  else if(url.indexOf('${pageContext.servletContext.contextPath}/web/hostler') != -1
 	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/form/hostler') != -1) {
 	    	
 			$('#hostler').addClass('current');
@@ -32,6 +37,7 @@
 				$('#hostler-unpaid-search').addClass('current');
 			}
 	    }
+	    
 	    else if(url.indexOf('${pageContext.servletContext.contextPath}/web/hostel') != -1
 	    		|| url.indexOf('${pageContext.servletContext.contextPath}/web/form/hostel') != -1) {
 	    	
@@ -62,7 +68,9 @@
 				$('#expense-all').addClass('current');
 			}
 	    
-	    } else {
+	    }
+	   
+	    else {
 	    	$('#home').addClass('current');
 	    }
 	    
@@ -80,7 +88,7 @@
 	<div class="navbar-body">
 	<ul id="nav-menu" class="sf-menu sf-navbar">
 		<li id="home">
-			<a href="${pageContext.servletContext.contextPath}">Home</a>
+			<a href="${pageContext.servletContext.contextPath}/web/hostler/current/payers">Home</a>
 			<ul><li id="hostler-current-payers">
 					<a href="${pageContext.servletContext.contextPath}/web/hostler/current/payers">current payers</a>
 				</li>
@@ -147,6 +155,14 @@
 		<li id="setting">
 			<a href="#">Settings</a>
 			<ul></ul>
+		</li>
+		<li id="contact">
+			<a href="#">Contact Us</a>
+			<ul>
+			<li id="contact-us">
+					<a href="${pageContext.servletContext.contextPath}/web/contact">Contact Us</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 	</div>

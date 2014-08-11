@@ -30,10 +30,10 @@ public interface HostlerService {
     public void editHostler(Hostler hostler);
 	public Hostler getHostler(long hostlerId);
 	public long getHostlersCount();
-	
+	public List<Hostler>getallHostlers2();
 
 	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch);
-	public List<CurrentPayers> getCurrentHostlers();
+	public List<Hostler> getCurrentHostlers();
 	
 	public void saveHostel(Hostel hostel);
     public List<Hostel>getallhostels(int page);
@@ -62,7 +62,7 @@ public interface HostlerService {
     
     public void saveAssign(HostlerRoomMapping hostlerRoomMapping);
     public List<HostlerRoomMapping> getallAssigns();
-    public void deleteAssign(long id);
+    public void deleteAssign(long hostlerId);
     public void editAssign(HostlerRoomMapping hostlerRoomMapping);
     public HostlerRoomMapping getAssign(long id);
     

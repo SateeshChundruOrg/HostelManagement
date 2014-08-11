@@ -35,8 +35,7 @@ ${expense.amount}
 ${expense.date}
 </td>
 <td>
-
-<a href="${pageContext.servletContext.contextPath}/web/form/expense/delete/${expense.expenseId}">Delete Expense</a>
+<a href="javascript:if(confirm('Delete this form submission?')){window.location='${pageContext.servletContext.contextPath}/web/form/expense/delete/${expense.expenseId}'}">Delete Expense </a>
 
 </td>
 <td>

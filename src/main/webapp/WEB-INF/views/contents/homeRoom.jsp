@@ -47,8 +47,7 @@ ${room.noOfBeds}
 ${room.hostelName} 
 </td>
 <td>
-
-<a href="${pageContext.servletContext.contextPath}/web/form/hostel/room/delete/${room.roomId}">Delete room</a>
+<a href="javascript:if(confirm('Delete this form submission?')){window.location='${pageContext.servletContext.contextPath}/web/form/hostel/room/delete/${room.roomId}'}">Delete Room </a>
 
 </td>
 <td>

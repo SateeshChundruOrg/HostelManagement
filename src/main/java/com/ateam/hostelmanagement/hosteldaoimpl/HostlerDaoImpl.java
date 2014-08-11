@@ -241,9 +241,9 @@ public class HostlerDaoImpl implements HostlerDao {
 		return hostlerRoomMapping;
 	}
 	@Override
-	public void deleteAssign(long id) {
+	public void deleteAssign(long hostlerId) {
 		
-		jdbcTemplet.update(Sqls.DELETE_ASSIGN,new Object[]{id});
+		jdbcTemplet.update(Sqls.DELETE_ASSIGN,new Object[]{hostlerId});
 	}
 	@Override
 	public void editAssign(HostlerRoomMapping hostlerRoomMapping) {
@@ -421,6 +421,12 @@ public class HostlerDaoImpl implements HostlerDao {
 		// TODO Auto-generated method stub
 		List<Room> rooms=jdbcTemplet.query(Sqls.SELECT_ROOMS,new Object[]{offset,pageSize},new BeanPropertyRowMapper<Room>(Room.class));
 		return rooms;
+	}
+	@Override
+	public List<Hostler> getallHostlers2() {
+		// TODO Auto-generated method stub
+		List<Hostler> hostlers2=jdbcTemplet.query(Sqls.SELECT_HOSTLERS2,new Object[]{},new BeanPropertyRowMapper<Hostler>(Hostler.class) );
+		return hostlers2;
 	}
 	
 	

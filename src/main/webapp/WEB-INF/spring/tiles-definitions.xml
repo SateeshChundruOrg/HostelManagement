@@ -169,5 +169,10 @@
 		<put-attribute name="title-content" value="All paymentss" />
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/Payments.jsp" />
 	</definition>
+	<definition name="contact" extends="template-main">
+		<put-attribute name="header-title-content" value="Contact Us" />
+		<put-attribute name="title-content" value="Concat Us" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/contact.jsp" />
+	</definition>
 	
 </tiles-definitions>

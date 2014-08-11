@@ -19,6 +19,7 @@ import java.util.Locale;
 
 
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ import com.ateam.hostelmanagement.bean.HostlerSearch;
 import com.ateam.hostelmanagement.bean.Payments;
 import com.ateam.hostelmanagement.bean.Room;
 import com.ateam.hostelmanagement.bean.RoomSearch;
+import com.ateam.hostelmanagement.bean.SessionData;
 import com.ateam.hostelmanagement.hostelservice.HostlerService;
 import com.ateam.hostelmanagement.settings.Constants;
 
@@ -52,6 +54,8 @@ public class WebController {
 	@Autowired
 	Constants constants;
 	private int page;
+	@Autowired
+	SessionData sessionData;
 	
 	
 private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -127,10 +131,16 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	}
 	@RequestMapping(value = "/hostler/current/payers", method = RequestMethod.GET)
 	public String currentPayers(Model model) {
-		
-		List<CurrentPayers> hostlers=hostlerService.getCurrentHostlers();
+		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
+		List<Hostler> hostlers=hostlerService.getCurrentHostlers();
+		for (Hostler hostler : hostlers) {
+			if(hostlerRoomMappings.contains(hostler)){
+				hostler.setRoomAssigned(true);
+			}
+		}
           model.addAttribute("hostlers",hostlers);
-	       return "hostlerCurrentPayers";
+          model.addAttribute("unpaid",1);
+	       return "home";
 	}
 	@RequestMapping(value="/hostel/create",method=RequestMethod.GET)
 	public String createHostelLand(Model model){
@@ -325,7 +335,7 @@ model.addAttribute("hostlerId",hostlerId);
 @RequestMapping(value = "/hostler/payment/history", method = RequestMethod.GET)
 public String getHostlerPaymentHistory(Model model) {
 	
-	//model.addAttribute("hostlers",hostlerService.getallhostlers());
+	model.addAttribute("hostlers",hostlerService.getallHostlers2());
        return "hostlerPayment";
 }
 @RequestMapping(value = "/hostler/payment/history", method = RequestMethod.POST)
@@ -335,7 +345,11 @@ public String getHostlerPaymentHistoryComplete(Model model,@RequestParam(value="
        return "paymentHistory";
 
 }
-
+@RequestMapping(value="/contact",method=RequestMethod.GET)
+public String getContact(Model model)
+{
+	return "contact";
+}
  }
  
 

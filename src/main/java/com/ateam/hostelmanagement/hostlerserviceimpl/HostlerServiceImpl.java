@@ -1,6 +1,7 @@
 package com.ateam.hostelmanagement.hostlerserviceimpl;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 
@@ -12,6 +13,14 @@ import java.util.List;
 
 
 
+
+
+
+
+
+import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang.time.DateUtils;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +36,7 @@ import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hosteldao.HostlerDao;
 import com.ateam.hostelmanagement.hostelservice.HostlerService;
 import com.ateam.hostelmanagement.settings.Constants;
+import com.ateam.hostelmanagement.util.Api;
 @Service
 public class HostlerServiceImpl implements HostlerService{
 
@@ -159,9 +169,9 @@ public class HostlerServiceImpl implements HostlerService{
 		return hostlerDao.getallAssigns();
 	}
 	@Override
-	public void deleteAssign(long id) {
+	public void deleteAssign(long hostlerId) {
 		// TODO Auto-generated method stub
-		hostlerDao.deleteAssign(id);
+		hostlerDao.deleteAssign(hostlerId);
 	}
 	@Override
 	public void editAssign(HostlerRoomMapping hostlerRoomMapping) {
@@ -210,9 +220,20 @@ public class HostlerServiceImpl implements HostlerService{
 		return hostlerDao.getHostlerSearch(hostlerSearch);
 	}
 	@Override
-	public List<CurrentPayers> getCurrentHostlers() {
-		// TODO Auto-generated method stub
-		return hostlerDao.getCurrentHostlers();
+	public List<Hostler> getCurrentHostlers() {
+
+		int day=-Api.getGivenFieldFromDateAndTime(DateFormatUtils.format(new Date(), "yyyy-MM-dd"), Api.DateType.DAY);
+		Date fromDate=DateUtils.addDays(new Date(), day);
+		Date todate=new Date();
+		String fromDateInSting=DateFormatUtils.format(fromDate, "yyyy-MM-dd");
+		String toDateInstring=DateFormatUtils.format(todate, "yyyy-MM-dd");
+		
+		
+		
+		
+		
+		
+		return hostlerDao.getUnPaidHostlerIds(fromDateInSting, toDateInstring);
 	}
 	@Override
 	public List<Room> getRoomSearch(RoomSearch roomSearch) {
@@ -256,6 +277,11 @@ public class HostlerServiceImpl implements HostlerService{
 int offSet=(page-1)*constants.pageSize;
 		
 		return hostlerDao.getallrooms(offSet,constants.pageSize);
+	}
+	@Override
+	public List<Hostler> getallHostlers2() {
+		// TODO Auto-generated method stub
+		return hostlerDao.getallHostlers2();
 	}
 
 

@@ -41,8 +41,8 @@ ${hostel.hostelName}
 ${hostel.hostelAddress}
 </td>
 <td>
+<a href="javascript:if(confirm('Delete this form submission?')){window.location='${pageContext.servletContext.contextPath}/web/form/hostel/delete/${hostel.hostelId}'}">Delete Hostel </a>
 
-<a href="${pageContext.servletContext.contextPath}/web/form/hostel/delete/${hostel.hostelId}">Delete Hostel</a>
 
 </td>
 <td>

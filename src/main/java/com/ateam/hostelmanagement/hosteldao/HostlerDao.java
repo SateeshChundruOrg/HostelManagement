@@ -23,6 +23,7 @@ public interface HostlerDao {
 	public void editHostler(Hostler hostler);
 	public Hostler getHostler(long hostlerId);
 	public long getHostlersCount();
+	public List<Hostler>getallHostlers2();
 
 	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch);
     public List<CurrentPayers> getCurrentHostlers();
@@ -51,7 +52,7 @@ public interface HostlerDao {
     
     public void saveAssign(HostlerRoomMapping assign);
     public List<HostlerRoomMapping> getallAssigns();
-    public void deleteAssign(long id);
+    public void deleteAssign(long hostlerId);
     public void editAssign(HostlerRoomMapping assign);
     public HostlerRoomMapping getAssign(long id);
     

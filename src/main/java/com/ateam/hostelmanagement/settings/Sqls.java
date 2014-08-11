@@ -8,7 +8,8 @@ public interface Sqls {
 	public static String DELETE_HOSTLER="update hostler SET deleted=1 WHERE hostlerId=?";
 	public static String UPDATE_HOSTLER="update hostler SET name=?,firstName=?,lastName=?,age=?,sex=?,qualification=?,dateOfJoining=?,mobileNumber=?,address=?  WHERE hostlerId=?";
 	public static String SELECT_HOSTLER="select * from hostler WHERE hostlerId=?";
-    
+    public static String SELECT_HOSTLERS2="select * from hostler WHERE deleted=0";
+	
 	public static String INSERT_HOSTEL="insert into hostel (hostelName, hostelAddress)values(?,?)";
     public static String SELECT_HOSTELS="select * from hostel WHERE deleted=0 LIMIT ?,?";
     public static String DELETE_HOSTEL="update hostel SET deleted=1 WHERE hostelId=?";
@@ -22,6 +23,8 @@ public interface Sqls {
     public static String UPDATE_ROOM="update room SET roomNumber=?,noOfBeds=?,hostelId=? WHERE roomId=?";
     public static String SELECT_ROOM="select * from room WHERE roomId=?";
     public static String SELECT_ROOMS_COUNT="select count(*) from room WHERE deleted=0"; 
+   
+    
     public static String INSERT_EXPENSE="insert into expense (expense,amount,date) values (?,?,?)";
     public static String SELECT_EXPENSES="select * from expense WHERE deleted=0";
     public static String DELETE_EXPENSE="update expense SET deleted=1 WHERE expenseId=?";
@@ -31,7 +34,7 @@ public interface Sqls {
     //public static String JOIN_ROOM="select 	r.roomId, r.roomNumber, r.noOfBeds,r.deleted, r.hostelId,h.hostelName from room r join hostel h on(r.hostelId=h.hostelId)";
     public static String INSERT_ASSIGN="insert into RoomHostlerMapping(roomId,hostlerId,dateOfJoining)values(?,?,?)";
     public static String SELECT_ASSIGNS="select * from RoomHostlerMapping WHERE deleted=0";
-    public static String DELETE_ASSIGN="update RoomHostlerMapping SET deleted=1 WHERE id=?";
+    public static String DELETE_ASSIGN="update hostler h JOIN RoomHostlerMapping rhm  JOIN Payments p ON h.hostlerId=rhm.hostlerId=p.hostlerId SET rhm.deleted=1,p.deleted=1 where h.hostlerId=?";
     public static String UPDATE_ASSIGN="update RoomHostlerMapping SET roomId=?,hostlerId=?,dateOfJoining=? WHERE hostlerId=? and deleted=0";
     public static String SELECT_ASSIGN="select * from RoomHostlerMapping WHERE hostlerId=? and deleted=0";
 
@@ -49,7 +52,7 @@ public interface Sqls {
     public static String SEARCH_HOSTLERS="select * from hostler :where";  
     public static String SEARCH_ROOMS="select r.roomNumber,h.hostelName,(noOfBeds-(select count(roomId) as filledcount from RoomHostlerMapping as rhmap where rhmap.deleted=0 and rhmap.roomId=r.roomId)) as availableBeds from room r join hostel h on(r.hostelId=h.hostelId) where (noOfBeds-(select count(roomId) as filledcount from RoomHostlerMapping as rhmap where rhmap.deleted=0 and rhmap.roomId=r.roomId))>=?";
     
-    public static String SELECT_CURRENT_HOSTLERS="select * from RoomHostlerMapping rhm join hostler h where Day(rhm.dateOfJoining)=day(curdate()) and rhm.hostlerId=h.hostlerId";
+    public static String SELECT_CURRENT_HOSTLERS="select * from RoomHostlerMapping rhm join hostler h ON rhm.hostlerId=h.hostlerId join Payments p where Day(rhm.dateOfJoining)=day(curdate()) and h.hostlerId=p.hostlerId and p.paidDate!=curdate()";
 
     public static String SELECT_SPENT="SELECT ifnull(sum(amount),0) as Spent FROM expense  WHERE date BETWEEN ? AND ? AND deleted=0 ";
     public static String SELECT_RECIEVED="SELECT ifnull(sum(p.paidAmount),0) from Payments p  WHERE p.paidDate BETWEEN ? AND ?  AND p.deleted=0 ";
